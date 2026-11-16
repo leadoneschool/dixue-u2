@@ -60,7 +60,7 @@ function makeDraggable(node, opts) {
    1) 圖上熱點標註
    block: {src, points:[{x,y,n,d,tag}], intro, panelTitle}
 ========================================================= */
-function hotspots(b) {
+function hotspots(b, src) {
   const wrap = el('div', 'ix ix-hot');
   const head = el('div', 'ix-head');
   head.innerHTML = `<span class="ix-dot"></span><span>圖上標註　點圖中的號碼看說明</span>
@@ -69,7 +69,7 @@ function hotspots(b) {
 
   const grid = el('div', 'hotlab');
   const w = el('div', 'hotwrap');
-  const img = el('img'); img.src = 'img/' + b.src + '.webp'; img.alt = b.panelTitle || '';
+  const img = el('img'); img.src = src; img.alt = b.panelTitle || '';
   img.loading = 'lazy';
   w.appendChild(img);
 

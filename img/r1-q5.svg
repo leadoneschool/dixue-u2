@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="四個區域甲、乙、丙、丁"><title>四個區域甲、乙、丙、丁</title>
+<defs><pattern id="grain" width="24" height="17" patternUnits="userSpaceOnUse"><path d="M2 4h6m4 9h7m-4-9l4 1" stroke="#382e28" opacity=".24"/><circle cx="7" cy="12" r="1" fill="#fff" opacity=".3"/></pattern><linearGradient id="water" x2="0%" y2="100%"><stop stop-color="#8fc6e6"/><stop offset="1" stop-color="#2f6f96"/></linearGradient><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#d4342a"/></marker></defs>
+<style>text{font-family:system-ui,sans-serif;font-weight:800;fill:#1d2730;paint-order:stroke;stroke:white;stroke-width:4px;stroke-linejoin:round}</style>
+
+<path d="M34 123L126 177L609 118V206L126 274L34 212Z" fill="#d48053" stroke="#544438" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M34 123L126 177Q235 188 335 140Q402 147 472 117Q542 127 609 118V157Q548 152 488 169Q418 186 368 177Q251 223 126 213L34 168Z" fill="#aa5640" stroke="#544438" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M34 123L126 177Q237 186 335 140Q402 147 472 117Q542 127 609 118L609 126Q532 134 479 133Q414 158 335 156Q233 207 126 185L34 140Z" fill="#534348" stroke="#544438" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M34 123L155 72L498 51L609 118Q552 132 479 117Q417 133 335 140Q246 178 126 177Z" fill="url(#water)" stroke="#544438" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M214 85Q256 77 268 60L297 49L318 30L340 48L366 24L385 40L409 35L428 62Q465 68 456 91Q468 110 479 117Q410 148 335 140Q309 133 290 109Z" fill="#487c53" stroke="#544438" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M283 108Q315 102 329 87Q356 73 386 89Q432 85 453 106L479 117Q408 148 335 140Z" fill="#b69860" stroke="#544438" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M34 123L126 177L609 118V206L126 274L34 212Z" fill="url(#grain)" stroke="none" stroke-width="1.7" stroke-linejoin="round"/><text x="349" y="128" text-anchor="middle" font-size="22">甲</text><text x="526" y="135" text-anchor="middle" font-size="22">乙</text><text x="407" y="168" text-anchor="middle" font-size="22">丙</text><text x="356" y="228" text-anchor="middle" font-size="22">丁</text></svg>

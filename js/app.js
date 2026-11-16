@@ -80,7 +80,8 @@ function syncSidebar() {
    區塊渲染
    ======================================================= */
 
-const SVG_FIGURES = new Set(['conv-cc', 'law-superposition', 'law-crosscut']);
+const SVG_FIGURES = new Set(['conv-cc', 'law-superposition', 'law-crosscut',
+  'fold-anticline', 'mem3-fold2', 'fold-syncline', 'mem3-fold1', 'fold-main', 'mem4-f1', 'mem4-f2', 'mem4-f3', 'seq-example1', 'seq-example2', 'geo-event-fig', 'aftershock-flow']);
 function imageUrl(name) {
   return 'img/' + name + (SVG_FIGURES.has(name) ? '.svg' : '.webp');
 }
@@ -186,7 +187,7 @@ function renderBlock(b) {
       (window.__animNodes = window.__animNodes || []).push(n);
       return n;
     }
-    case 'hotspots': return IX.hotspots(b);
+    case 'hotspots': return IX.hotspots(b, imageUrl(b.src));
     case 'order':    return IX.order(b);
     case 'sort':     return IX.sortInto(b);
     case 'bigterm': {

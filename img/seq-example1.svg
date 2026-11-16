@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 365" role="img" aria-label="範例一：岩脈與斷層的截切關係">
+<title>範例一：岩脈與斷層的截切關係</title>
+<defs>
+<pattern id="grain" width="21" height="14" patternUnits="userSpaceOnUse">
+<path d="M1 4h5m6 7h7M9 2l3 1m-8 9h3" fill="none" stroke="#31261f" opacity=".22"/>
+<circle cx="17" cy="4" r=".8" fill="#fff" opacity=".42"/>
+</pattern>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto" markerUnits="strokeWidth">
+<path d="M0 0L10 5L0 10Z" fill="#d4342a"/>
+</marker>
+</defs>
+<style>text{font-family:system-ui,sans-serif;font-weight:800;fill:#1d2730;paint-order:stroke;stroke:white;stroke-width:4px;stroke-linejoin:round}</style>
+
+<path d="M168 116Q200 124 234 115Q289 123 314 111Q363 77 390 92Q428 120 480 110V334H168Z" fill="#b4a8b0" stroke="#514439" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M168 116Q200 124 234 115Q289 123 314 111Q363 77 390 92Q428 120 480 110V212L402 212Q363 219 324 216Q295 207 266 218Q236 223 208 217L168 222Z" fill="#dcc398" stroke="#514439" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M168 142H479M168 183H479M168 257H479M168 298H479" fill="none" stroke="#514439" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M371 92Q386 86 398 92V182L371 160Z M410 194L438 220V334H410Z" fill="#b95143" stroke="#514439" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M300 110L479 258" fill="none" stroke="#514439" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M168 116Q200 124 234 115Q289 123 314 111Q363 77 390 92Q428 120 480 110V334H168Z" fill="url(#grain)" stroke="none" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M207 61L208 109" fill="none" stroke="#d4342a" stroke-width="4" marker-end="url(#arrow)"/><path d="M390 53L388 83" fill="none" stroke="#d4342a" stroke-width="4" marker-end="url(#arrow)"/><path d="M290 84L314 118" fill="none" stroke="#d4342a" stroke-width="4" marker-end="url(#arrow)"/><path d="M131 222L166 220" fill="none" stroke="#d4342a" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="204" y="43" font-size="19" text-anchor="middle">現今侵蝕面</text><text x="390" y="39" font-size="19" text-anchor="middle">岩脈</text><text x="275" y="81" font-size="19" text-anchor="middle">斷層</text><text x="83" y="222" font-size="19" text-anchor="middle">古侵蝕面</text><text x="123" y="180" font-size="19" text-anchor="middle">砂岩</text><text x="123" y="288" font-size="19" text-anchor="middle">礫岩</text>
+</svg>
