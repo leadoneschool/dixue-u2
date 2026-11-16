@@ -79,16 +79,53 @@ function syncSidebar() {
 /* =======================================================
    區塊渲染
    ======================================================= */
+
+const SVG_FIGURES = new Set(['conv-cc', 'law-superposition', 'law-crosscut']);
+function imageUrl(name) {
+  return 'img/' + name + (SVG_FIGURES.has(name) ? '.svg' : '.webp');
+}
+
+function tableFigure(name, label) {
+  if (name === 'h1-q2-hint') {
+    const hint = el('p', 'figure-hint');
+    hint.textContent = '提示：甲、乙、丙三構造中，甲的密度最大。';
+    return hint;
+  }
+  if (!Object.prototype.hasOwnProperty.call(FIGURE_TABLES, name)) return null;
+  const [headers, ...rows] = FIGURE_TABLES[name];
+  const wrap = el('div', 'figure-table');
+  const table = el('table', 't');
+  table.setAttribute('aria-label', label || '講義資料表');
+  const head = table.createTHead().insertRow();
+  headers.forEach(value => {
+    const cell = el('th');
+    cell.scope = 'col';
+    cell.textContent = value;
+    head.appendChild(cell);
+  });
+  const body = table.createTBody();
+  rows.forEach(values => {
+    const row = body.insertRow();
+    values.forEach(value => { row.insertCell().textContent = value; });
+  });
+  wrap.appendChild(table);
+  return wrap;
+}
+
 function figure(src, cap, note, opt) {
   opt = opt || {};
   const f = el('figure', 'fig' + (opt.half ? ' half' : ''));
-  const w = el('div', 'imgwrap');
-  const img = el('img'); img.src = 'img/' + src + '.webp'; img.alt = cap || '';
-  img.loading = 'lazy';
-  w.appendChild(img);
-  w.appendChild(el('span', 'zoomhint', '點擊放大'));
-  w.onclick = () => lightbox(img.src, cap || '');
-  f.appendChild(w);
+  const table = tableFigure(src, cap);
+  if (table) f.appendChild(table);
+  else {
+    const w = el('div', 'imgwrap');
+    const img = el('img'); img.src = imageUrl(src); img.alt = cap || '';
+    img.loading = 'lazy';
+    w.appendChild(img);
+    w.appendChild(el('span', 'zoomhint', '點擊放大'));
+    w.onclick = () => lightbox(img.src, cap || '');
+    f.appendChild(w);
+  }
   if (cap || note) {
     const c = el('figcaption', '', cap ? esc(cap) : '');
     if (note) c.appendChild(el('div', 'note', note));
@@ -195,7 +232,7 @@ function renderBlock(b) {
         body.appendChild(el('div', '', i.d));
         c.appendChild(body);
         if (i.fig) {
-          const im = el('img'); im.src = 'img/' + i.fig + '.webp'; im.loading = 'lazy';
+          const im = el('img'); im.src = imageUrl(i.fig); im.loading = 'lazy';
           im.onclick = () => lightbox(im.src, i.h);
           c.appendChild(im);
         }
@@ -258,7 +295,9 @@ function renderQ(page, q, qi, bar) {
   if (q.fig || q.fig2) {
     const fw = el('div', 'q-fig tall');
     [q.fig, q.fig2].filter(Boolean).forEach(s => {
-      const im = el('img'); im.src = 'img/' + s + '.webp'; im.loading = 'lazy';
+      const table = tableFigure(s, '題目附圖');
+      if (table) { fw.appendChild(table); return; }
+      const im = el('img'); im.src = imageUrl(s); im.loading = 'lazy';
       im.onclick = () => lightbox(im.src, '題目附圖');
       fw.appendChild(im);
     });
@@ -275,9 +314,13 @@ function renderQ(page, q, qi, bar) {
   }
   if (q.optfig) {
     const w = el('div', 'q-optfig');
-    const im = el('img'); im.src = 'img/' + q.optfig + '.webp'; im.loading = 'lazy';
-    im.onclick = () => lightbox(im.src, '選項圖');
-    w.appendChild(im); box.appendChild(w);
+    const table = tableFigure(q.optfig, '選項圖');
+    if (table) w.appendChild(table);
+    else {
+      const im = el('img'); im.src = imageUrl(q.optfig); im.loading = 'lazy';
+      im.onclick = () => lightbox(im.src, '選項圖');
+      w.appendChild(im);
+    } box.appendChild(w);
   }
 
   const opts = el('div', 'opts');
@@ -353,7 +396,7 @@ function labEarth(host) {
   const s = labShell('互動剖面圖　點選圓點查看各層', '共 6 個標籤');
   const grid = el('div', 'hotlab');
   const w = el('div', 'hotwrap');
-  const img = el('img'); img.src = 'img/earth-section.webp'; img.alt = '地球內部構造剖面';
+  const img = el('img'); img.src = imageUrl("earth-section"); img.alt = '地球內部構造剖面';
   w.appendChild(img);
   const info = el('div', 'hotinfo empty');
   info.innerHTML = `<div class="hn">點選圖上的圓點</div><div class="hd">由外而內：地殼 → 地函 → 地核；另外依物理性質分為岩石圈與軟流圈。</div>`;
@@ -381,9 +424,9 @@ function labPlates(host, mode) {
   const s = labShell(diverge ? '板塊互相分離　拖動滑桿把板塊拉開' : '板塊互相推擠　拖動滑桿把板塊推在一起',
                      diverge ? '熱對流上升處' : '熱對流下降處');
   const st = el('div', 'platestage');
-  const sp = el('img', 'spacer'); sp.src = 'img/' + name + '.webp';
-  const L = el('img', 'h'); L.src = 'img/' + name + '-L.webp';
-  const R = el('img', 'h'); R.src = 'img/' + name + '-R.webp';
+  const sp = el('img', 'spacer'); sp.src = imageUrl(name);
+  const L = el('img', 'h'); L.src = imageUrl(name + "-L");
+  const R = el('img', 'h'); R.src = imageUrl(name + "-R");
   st.appendChild(sp); st.appendChild(L); st.appendChild(R);
   s.body.appendChild(st);
 
@@ -426,85 +469,6 @@ function labPlates(host, mode) {
 }
 
 /* --- 熱對流動畫 --- */
-function labConvection(host) {
-  const s = labShell('軟流圈熱對流　按播放看板塊怎麼被帶著走', '講義 P.30 原圖 ＋ 動態流線');
-  const w = el('div'); w.style.position = 'relative'; w.style.maxWidth = '100%';
-  const img = el('img'); img.src = 'img/convection-big.webp'; img.style.width = '100%';
-  img.style.display = 'block'; img.style.borderRadius = '8px';
-  w.appendChild(img);
-
-  const NS = 'http://www.w3.org/2000/svg';
-  const svg = document.createElementNS(NS, 'svg');
-  svg.setAttribute('viewBox', '0 0 100 100');
-  svg.setAttribute('preserveAspectRatio', 'none');
-  svg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none';
-  w.appendChild(svg);
-
-  const defs = document.createElementNS(NS, 'defs');
-  defs.innerHTML =
-    '<marker id="ar" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">' +
-    '<path d="M0,0 L10,5 L0,10 z" fill="#fff"/></marker>';
-  svg.appendChild(defs);
-
-  function path(d, cls) {
-    const p = document.createElementNS(NS, 'path');
-    p.setAttribute('d', d); p.setAttribute('fill', 'none');
-    p.setAttribute('vector-effect', 'non-scaling-stroke');
-    p.setAttribute('class', cls);
-    svg.appendChild(p); return p;
-  }
-  /* 兩個對流胞：左 CCW、右 CW */
-  const cellL = 'M47,68 C47,62 38,62 33,64 C25,67 23,76 24,82 C25,89 33,92 40,90 C46,88 47,82 47,76';
-  const cellR = 'M56,68 C56,62 65,62 70,64 C78,67 80,76 79,82 C78,89 70,92 63,90 C57,88 56,82 56,76';
-  const magma = 'M50,88 L50,55';
-  const plateL = 'M49,52 L24,52';
-  const plateR = 'M54,52 L79,52';
-
-  const pl = path(cellL, 'flow'), pr = path(cellR, 'flow');
-  const pm = path(magma, 'magma');
-  const a1 = path(plateL, 'plate'), a2 = path(plateR, 'plate');
-  [pl, pr].forEach(p => { p.setAttribute('stroke', '#fff44f'); p.setAttribute('stroke-width', '3.2'); p.setAttribute('stroke-linecap', 'round'); });
-  pm.setAttribute('stroke', '#ff7b54'); pm.setAttribute('stroke-width', '3'); pm.setAttribute('stroke-linecap', 'round');
-  [a1, a2].forEach(p => { p.setAttribute('stroke', '#ffffff'); p.setAttribute('stroke-width', '2.6'); p.setAttribute('stroke-linecap', 'round'); p.setAttribute('marker-end', 'url(#ar)'); });
-
-  const st = el('style');
-  st.textContent = `
-  .flow,.magma,.plate{stroke-dasharray:7 11;stroke-dashoffset:0;opacity:.95;
-    filter:drop-shadow(0 0 2px rgba(0,0,0,.45))}
-  .conv-run .flow{animation:dash 1.7s linear infinite}
-  .conv-run .magma{animation:dash 1.1s linear infinite}
-  .conv-run .plate{animation:dash 2.1s linear infinite}
-  @keyframes dash{to{stroke-dashoffset:-36}}
-  .conv-off .flow,.conv-off .magma,.conv-off .plate{opacity:0}`;
-  w.appendChild(st);
-  svg.classList.add('conv-run');
-
-  s.body.appendChild(w);
-  const legend = el('div', 'fault-note');
-  legend.innerHTML = `<span class="pill" style="background:#fff8c8;color:#7a6400">黃＝軟流圈熱對流</span>
-    <span class="pill" style="background:#ffe6dc;color:#9c4321">紅＝中洋脊岩漿上升</span>
-    <span class="pill" style="background:#eef2f4;color:#3e4c57">白＝板塊移動方向</span>`;
-  s.body.appendChild(legend);
-
-  const c = s.ctrl();
-  const play = el('button', 'btn', '❚❚ 暫停動畫');
-  play.onclick = () => {
-    const on = svg.classList.toggle('conv-run');
-    svg.classList.toggle('conv-off', !on);
-    play.textContent = on ? '❚❚ 暫停動畫' : '▶ 播放動畫';
-  };
-  c.appendChild(play);
-  c.appendChild(el('span', 'ctrl-label long',
-    '中洋脊（中央）＝熱對流上升、板塊分離；海溝（兩側）＝熱對流下降、板塊隱沒'));
-  host.appendChild(s.root);
-}
-
-/* --- 斷層：真實錯動 --- */
-const FAULTS = [
-  { k: 'normal', name: '正斷層', force: '拉張力（張裂）', move: '上盤相對向下', where: '板塊互相分離處', file: 'fault-normal' },
-  { k: 'reverse', name: '逆斷層', force: '擠壓力（推擠）', move: '上盤相對向上', where: '板塊互相推擠處（臺灣多屬此類）', file: 'fault-reverse' },
-  { k: 'strike', name: '平移斷層', force: '水平作用力', move: '兩側岩層水平錯動', where: '板塊互相錯動處', file: 'fault-strike' }
-];
 function labFault(host) {
   const s = labShell('三種斷層　拖動滑桿，讓岩塊沿著斷層面真的滑動', '使用講義原圖切層');
   let idx = 0;
@@ -543,9 +507,9 @@ function labFault(host) {
   }
   function load() {
     const f = FAULTS[idx];
-    sp.src = 'img/' + f.file + '-a.webp';
-    A.src = 'img/' + f.file + '-a.webp';
-    B.src = 'img/' + f.file + '-b.webp';
+    sp.src = imageUrl(f.file + "-a");
+    A.src = imageUrl(f.file + "-a");
+    B.src = imageUrl(f.file + "-b");
     info.innerHTML = `<span class="pill hot">${f.name}</span>
       <span class="pill">作用力：${f.force}</span>
       <span class="pill">${f.move}</span>
@@ -590,7 +554,7 @@ function labQuake(host) {
   const s = labShell('地震名詞互動圖　點選圓點查看定義', '共 4 個名詞');
   const grid = el('div', 'hotlab');
   const w = el('div', 'hotwrap');
-  const img = el('img'); img.src = 'img/quake-terms.webp'; img.alt = '震源與震央';
+  const img = el('img'); img.src = imageUrl("quake-terms"); img.alt = '震源與震央';
   w.appendChild(img);
   const info = el('div', 'hotinfo empty');
   info.innerHTML = `<div class="hn">點選圖上的圓點</div><div class="hd">震源在地底、震央在地表，兩者位置不同——這是考試最常考的區別。</div>`;
@@ -613,8 +577,8 @@ function labQuake(host) {
 function labMaps(host) {
   const s = labShell('全球板塊分布 vs 地震火山分布　拖動滑桿疊合兩張圖', '講義 P.29 原圖');
   const w = el('div', 'maplay');
-  const a = el('img'); a.src = 'img/plates-world.webp';
-  const b = el('img', 'ov'); b.src = 'img/quake-volcano-map.webp';
+  const a = el('img'); a.src = imageUrl("plates-world");
+  const b = el('img', 'ov'); b.src = imageUrl("quake-volcano-map");
   w.appendChild(a); w.appendChild(b);
   s.body.appendChild(w);
   const note = el('div', 'fault-note');
@@ -641,7 +605,7 @@ function renderMemory(page, host) {
   const figs = [page.fig, page.fig2, page.fig3].filter(Boolean);
   const fw = el('div'); fw.style.cssText = 'display:flex;gap:14px;flex-wrap:wrap;justify-content:center';
   figs.forEach(f => {
-    const im = el('img'); im.src = 'img/' + f + '.webp';
+    const im = el('img'); im.src = imageUrl(f);
     im.style.cssText = 'max-width:100%;border:1px solid var(--line-2);border-radius:9px;cursor:zoom-in;' +
       (figs.length > 1 ? 'flex:1 1 240px;min-width:220px;' : (page.figHalf ? 'max-width:320px;' : ''));
     im.onclick = () => lightbox(im.src, page.title);
@@ -730,7 +694,6 @@ function render() {
       if (p.lab === 'earth') labEarth(sheet);
       if (p.lab === 'diverge') labPlates(sheet, 'diverge');
       if (p.lab === 'converge') labPlates(sheet, 'converge');
-      if (p.lab === 'convection') labConvection(sheet);
       if (p.lab === 'fault') labFault(sheet);
       if (p.lab === 'quake') labQuake(sheet);
       if (p.lab === 'maps') labMaps(sheet);

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 310" role="img" aria-label="擾動前的地層由上而下逐漸變老">
+  <title>擾動前的地層由上而下逐漸變老</title>
+  <defs>
+    <pattern id="rock" width="23" height="16" patternUnits="userSpaceOnUse">
+      <path d="M2 4h5m4 6h9M2 14l4-1m10-11h3" stroke="#503c2d" stroke-opacity=".25" fill="none"/>
+      <circle cx="10" cy="3" r=".7" fill="#fff" opacity=".6"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#1d2730"/>
+    </marker>
+  </defs>
+  <style>
+    .label { font: 800 19px system-ui, sans-serif; fill: #1d2730; paint-order: stroke; stroke: #fff; stroke-width: 5px; stroke-linejoin: round; }
+    .rock { stroke: #584735; stroke-width: 2; stroke-linejoin: round; }
+  </style>
+
+  <path d="M48 93H414L482 34H116Z" fill="#efe0c8" class="rock"/>
+  <path d="M48 93H414V139H48Z" fill="#e9ba89" class="rock"/>
+  <path d="M48 139H414V199H48Z" fill="#c4a688" class="rock"/>
+  <path d="M48 199H414V261H48Z" fill="#a58264" class="rock"/>
+  <path d="M414 93L482 34V80L414 139Z" fill="#c39166" class="rock"/>
+  <path d="M414 139L482 80V140L414 199Z" fill="#a48469" class="rock"/>
+  <path d="M414 199L482 140V202L414 261Z" fill="#876348" class="rock"/>
+  <path d="M48 93L116 34H482V202L414 261H48Z" fill="url(#rock)"/>
+  <text class="label" x="505" y="77">年輕</text>
+  <text class="label" x="505" y="133">次之</text>
+  <text class="label" x="505" y="191">較老</text>
+</svg>

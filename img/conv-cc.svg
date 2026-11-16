@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 355" role="img" aria-label="印度半島與歐亞大陸聚合，形成喜馬拉雅山脈">
+  <title>印度半島與歐亞大陸聚合，形成喜馬拉雅山脈</title>
+  <defs>
+    <pattern id="rock" width="23" height="16" patternUnits="userSpaceOnUse">
+      <path d="M2 4h5m4 6h9M2 14l4-1m10-11h3" stroke="#503c2d" stroke-opacity=".25" fill="none"/>
+      <circle cx="10" cy="3" r=".7" fill="#fff" opacity=".6"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#1d2730"/>
+    </marker>
+  </defs>
+  <style>
+    .label { font: 800 19px system-ui, sans-serif; fill: #1d2730; paint-order: stroke; stroke: #fff; stroke-width: 5px; stroke-linejoin: round; }
+    .rock { stroke: #584735; stroke-width: 2; stroke-linejoin: round; }
+  </style>
+
+  <rect x="12" y="9" width="606" height="326" rx="16" fill="#dceaf2"/>
+  <path d="M24 195L606 190V325H24Z" fill="#e2602b"/>
+  <path d="M24 151L606 158V259Q437 254 372 314L348 325H276Q211 249 24 254Z" fill="#d48b4f" class="rock"/>
+  <path d="M24 151L172 145Q228 137 275 109L300 90L325 109L352 81L376 112L412 100L470 136L606 158V224Q513 211 456 230Q408 239 372 273Q305 241 262 216Q188 206 24 206Z" fill="#cba96c" class="rock"/>
+  <path d="M140 149L194 132L232 138L275 109L300 90L325 109L352 81L376 112L412 100L470 136L526 146L456 150L403 130L375 143L348 121L325 142L301 121L262 143L226 147L186 159Z" fill="#72964f" class="rock"/>
+  <path d="M24 151L172 145Q228 137 275 109L300 90L325 109L352 81L376 112L412 100L470 136L606 158V259Q437 254 372 314L348 325H276Q211 249 24 254Z" fill="url(#rock)"/>
+  <path d="M24 177Q149 171 250 189Q324 211 366 251Q418 208 480 197L606 194" fill="none" stroke="#98733f" opacity=".75"/>
+  <path d="M104 117H210 M526 124H450" fill="none" stroke="#1d2730" stroke-width="3" marker-end="url(#arrow)"/>
+  <text class="label" x="72" y="92">印度半島</text>
+  <text class="label" x="478" y="90">歐亞大陸</text>
+  <text class="label" x="283" y="60">喜馬拉雅山脈</text>
+  <text class="label" x="84" y="184">大陸地殼</text>
+  <text class="label" x="469" y="187">大陸地殼</text>
+  <text class="label" x="62" y="300">軟流圈</text>
+</svg>

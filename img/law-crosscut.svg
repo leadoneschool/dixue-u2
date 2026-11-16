@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610 340" role="img" aria-label="斷層截切地層及岩脈">
+  <title>斷層截切地層及岩脈</title>
+  <defs>
+    <pattern id="rock" width="23" height="16" patternUnits="userSpaceOnUse">
+      <path d="M2 4h5m4 6h9M2 14l4-1m10-11h3" stroke="#503c2d" stroke-opacity=".25" fill="none"/>
+      <circle cx="10" cy="3" r=".7" fill="#fff" opacity=".6"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#1d2730"/>
+    </marker>
+  </defs>
+  <style>
+    .label { font: 800 19px system-ui, sans-serif; fill: #1d2730; paint-order: stroke; stroke: #fff; stroke-width: 5px; stroke-linejoin: round; }
+    .rock { stroke: #584735; stroke-width: 2; stroke-linejoin: round; }
+  </style>
+
+  <path d="M36 134L113 66H241L199 134Z" fill="#e9dac3" class="rock"/>
+  <path d="M241 66L304 14H511L447 70Z" fill="#efe0c8" class="rock"/>
+  <path d="M36 134H199L224 191H36Z M241 66L447 70V125H265Z" fill="#e9b98a" class="rock"/>
+  <path d="M36 191H224L247 250H36Z M265 125H447V182H288Z" fill="#b99172" class="rock"/>
+  <path d="M36 250H247L271 306H36Z M288 182H447V241H313Z M313 241H447L365 306H340Z" fill="#967450" class="rock"/>
+  <path d="M447 70L511 14V69L447 125Z M447 125L511 69V126L447 182Z M447 182L511 126V185L447 241Z" fill="#aa8265" class="rock"/>
+  <path d="M196 134L219 134L293 306H271Z M241 66L264 66L338 241H313Z" fill="#b8594b" class="rock"/>
+  <path d="M36 134L113 66H241L304 14H511V185L365 306H36Z" fill="url(#rock)"/>
+  <path d="M492 282L345 263 M168 281L257 281" fill="none" stroke="#1d2730" stroke-width="2.6" marker-end="url(#arrow)"/>
+  <text class="label" x="497" y="288">斷層</text>
+  <text class="label" x="110" y="288">岩脈</text>
+</svg>

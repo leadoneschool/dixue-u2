@@ -556,6 +556,21 @@ text.anim-leg{font-size:13px;font-weight:700;fill:#44535f}
 @media (max-width:720px){
   .anim-stage{padding:12px 12px 4px}
   .anim-head,.anim-ctrl,.anim-cap{padding-left:16px;padding-right:16px}
-  .anim-lab text{font-size:21px}
-  text.anim-leg{font-size:16px}
+  .anim-lab text,.anim-lab.dark text{font-size:32px}
+  text.anim-leg{font-size:23px}
+}
+
+.reading-svg { overflow: hidden; }
+.reading-svg .anim-lab text { font-size: 16px; }
+@media (max-width: 520px) {
+  .reading-svg .anim-lab text { font-size: 21px; }
+}
+
+.figure-table { width: 100%; min-width: 0; border: 1px solid var(--line); border-radius: 9px; }
+.figure-table .t { width: 100%; table-layout: fixed; }
+.figure-table .t th, .figure-table .t td { white-space: normal; overflow-wrap: anywhere; }
+.figure-hint { margin: 0; padding: .75em 1em; background: var(--paper); border: 1px solid var(--line); border-radius: 9px; }
+@media (max-width: 520px) {
+  .figure-table .t th, .figure-table .t td { padding: .4em .28em; font-size: .84rem; }
+  .q-optfig { margin-left: 0; }
 }
