@@ -1,0 +1,1 @@
+const FAULTMETA = {"normal": {"w": 749, "h": 454, "dx": -75, "dy": -125, "label": "正斷層", "force": "拉張力", "move": "上盤相對向下"}, "reverse": {"w": 672, "h": 422, "dx": 40, "dy": 112, "label": "逆斷層", "force": "擠壓力", "move": "上盤相對向上"}, "strike": {"w": 725, "h": 427, "dx": -65, "dy": 59, "label": "平移斷層", "force": "水平作用力", "move": "兩側岩層水平錯動"}};

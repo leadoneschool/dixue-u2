@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>板塊運動與地球歷史｜國中地科 互動講義</title>
+<meta name="description" content="國中地科單元2「板塊運動與地球歷史」互動式講義：地球構造、板塊運動、岩層歷史與臺灣地震，含可操作的熱對流與斷層動畫、圖像記憶填空與會考題庫。">
+<meta name="theme-color" content="#2f6f7e">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%232f6f7e'/><path d='M14 56c12-9 24-9 36 0s24 9 36 0' stroke='%23fff' stroke-width='7' fill='none' stroke-linecap='round'/></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+
+  <aside id="sidebar">
+    <div class="sb-head">
+      <div class="sb-sub">國中地科　單元 2</div>
+      <div class="sb-title">板塊運動<br>與地球歷史</div>
+      <div class="sb-meta" id="sbprog">載入中…</div>
+    </div>
+    <nav class="sb-scroll" id="chlist"></nav>
+    <div style="padding:12px 18px;border-top:1px solid var(--line)">
+      <button class="mini" id="resetall">清除學習紀錄</button>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <main id="main">
+    <header id="topbar">
+      <div class="tb-row">
+        <button class="chip ghost" id="burger" aria-label="章節選單">☰　章節</button>
+        <div class="tb-crumb" id="crumb"></div>
+        <div class="tb-spacer"></div>
+        <button class="chip" id="srcchip" title="開啟原始講義掃描頁對照">講義 P.26</button>
+      </div>
+      <div class="tb-prog"><i id="tbprog" style="width:0"></i></div>
+    </header>
+    <div id="stage"></div>
+  </main>
+</div>
+
+<!-- 放大圖 -->
+<div class="ovl" id="lb">
+  <button class="x" id="lbx" aria-label="關閉">×</button>
+  <img id="lbimg" alt="">
+  <div class="cap" id="lbcap"></div>
+</div>
+
+<!-- 原始講義頁 -->
+<div class="ovl" id="scan">
+  <button class="x" id="scanx" aria-label="關閉">×</button>
+  <div class="scanwrap">
+    <button class="scannav" id="scanprev" aria-label="上一頁">‹</button>
+    <img id="scanimg" alt="原始講義頁">
+    <button class="scannav" id="scannext" aria-label="下一頁">›</button>
+  </div>
+  <div class="cap" id="scancap"></div>
+</div>
+
+<script src="js/interactive.js"></script>
+<script src="js/content.js"></script>
+<script src="js/pages-rich.js"></script>
+<script src="js/faultmeta.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
