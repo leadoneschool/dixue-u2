@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 476 425" role="img" aria-label="日本東側震央與周圍板塊"><title>日本東側震央與周圍板塊</title><defs>
+<pattern id="grain" width="15" height="12" patternUnits="userSpaceOnUse"><path d="M2 4h3m4 4h4" stroke="#312c28" opacity=".25"/><circle cx="6" cy="10" r=".7" fill="#fff" opacity=".35"/></pattern>
+<pattern id="pebbles" width="28" height="23" patternUnits="userSpaceOnUse"><path d="M5 12Q1 7 6 5Q12 5 11 10Q9 15 5 12ZM18 20Q14 16 19 14Q24 14 23 19Z" fill="#9e9c92" stroke="#574d43" stroke-width="1"/></pattern>
+<pattern id="hatch" width="11" height="11" patternUnits="userSpaceOnUse"><path d="M-2 2L2 -2M0 11L11 0M9 13L13 9" stroke="#856a50" stroke-width="1.5"/></pattern>
+<pattern id="dots" width="16" height="15" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.5" fill="#473d34"/><circle cx="11" cy="10" r="1" fill="#473d34"/></pattern>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#d4342a"/></marker>
+<marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#3a6896"/></marker>
+</defs><style>text{font-family:system-ui,sans-serif;font-weight:800;fill:#1d2730;paint-order:stroke;stroke:white;stroke-width:3.4px;stroke-linejoin:round}</style>
+<rect x="14" y="16" width="447" height="385" fill="#e7f1f2" stroke="#5f6059"/>
+<path d="M15 226Q55 215 88 224Q123 236 148 209Q156 202 153 188L168 179L182 193L179 206L151 226L121 245L94 251L83 271L56 260L24 282L15 273Z" fill="#e0d1ba" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M132 241L155 222L186 217L200 180L211 164L221 133L235 134L246 154L240 183L224 200L214 225L186 231L161 254Z" fill="#e0d1ba" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M220 115L232 98L221 78L234 64L249 84L263 89L273 106L255 111L247 126Z" fill="#e0d1ba" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M13 331Q121 302 182 267Q207 258 220 239Q257 246 286 237M197 17Q171 66 187 97Q195 110 167 133Q152 142 148 169Q143 198 170 206M287 399Q272 351 275 307Q277 254 294 224Q320 185 311 156Q307 134 350 107Q405 80 460 70" fill="none" stroke="#465151" stroke-width="3" stroke-linejoin="round"/>
+<path d="M0-10L3-3H10L5 2L7 10L0 5L-7 10L-5 2L-10-3H-3Z" transform="translate(283 188)" fill="#d4342a"/>
+<text x="397" y="53" text-anchor="middle" font-size="18">北美板塊</text><text x="95" y="107" text-anchor="middle" font-size="18">歐亞板塊</text><text x="121" y="358" text-anchor="middle" font-size="18">菲律賓海板塊</text><text x="377" y="324" text-anchor="middle" font-size="18">太平洋板塊</text>
+<text x="328" y="157" text-anchor="middle" font-size="17">日</text><text x="328" y="178" text-anchor="middle" font-size="17">本</text><text x="328" y="199" text-anchor="middle" font-size="17">海</text><text x="328" y="220" text-anchor="middle" font-size="17">溝</text></svg>

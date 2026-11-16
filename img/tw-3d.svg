@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 675 396" role="img" aria-label="臺灣島、琉球海溝與呂宋火山島弧"><title>臺灣島、琉球海溝與呂宋火山島弧</title><defs>
+<pattern id="grain" width="15" height="12" patternUnits="userSpaceOnUse"><path d="M2 4h3m4 4h4" stroke="#312c28" opacity=".25"/><circle cx="6" cy="10" r=".7" fill="#fff" opacity=".35"/></pattern>
+<pattern id="pebbles" width="28" height="23" patternUnits="userSpaceOnUse"><path d="M5 12Q1 7 6 5Q12 5 11 10Q9 15 5 12ZM18 20Q14 16 19 14Q24 14 23 19Z" fill="#9e9c92" stroke="#574d43" stroke-width="1"/></pattern>
+<pattern id="hatch" width="11" height="11" patternUnits="userSpaceOnUse"><path d="M-2 2L2 -2M0 11L11 0M9 13L13 9" stroke="#856a50" stroke-width="1.5"/></pattern>
+<pattern id="dots" width="16" height="15" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.5" fill="#473d34"/><circle cx="11" cy="10" r="1" fill="#473d34"/></pattern>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#d4342a"/></marker>
+<marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#3a6896"/></marker>
+</defs><style>text{font-family:system-ui,sans-serif;font-weight:800;fill:#1d2730;paint-order:stroke;stroke:white;stroke-width:3.4px;stroke-linejoin:round}</style>
+<path d="M37 179L327 240L577 128V178L328 298L37 233Z" fill="#9a7356" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/><path d="M327 240L577 128V178L328 298Z" fill="#735846" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M37 179L307 77L577 128L327 240Z" fill="#8ab9cb" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M37 179L327 240L391 211L348 226Q324 263 346 320Q353 345 390 361L372 375Q327 358 313 322Q292 283 305 249L37 203Z" fill="#b69465" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M327 240L577 128V153L534 171Q510 187 529 220L503 226Q485 204 487 195L328 265Z" fill="#9b6251" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M188 158Q230 131 283 108L318 101L352 108L373 126Q361 141 324 150Q273 167 256 184Q236 189 211 180Z" fill="#7ea05c" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M202 169Q253 149 292 123L340 114L363 122L347 143Q297 149 263 173L241 182Z" fill="#a2b36e" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M214 169Q270 139 303 134Q329 126 351 123" fill="none" stroke="#436534" stroke-width="9" stroke-linejoin="round"/>
+<path d="M233 176Q264 173 284 155Q312 146 342 141" fill="none" stroke="#e8c46c" stroke-width="4" stroke-linejoin="round"/>
+<path d="M37 179L327 240L577 128V178L328 298L37 233Z" fill="url(#grain)" stroke="none" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M358 153Q404 159 431 166Q471 167 530 147" fill="none" stroke="#356379" stroke-width="4" stroke-linejoin="round"/>
+<path d="M276 190l8 -13 8 13Z" fill="#b66d52" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/><path d="M295 198l8 -13 8 13Z" fill="#b66d52" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/><path d="M313 208l8 -13 8 13Z" fill="#b66d52" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/><path d="M332 220l8 -13 8 13Z" fill="#b66d52" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M358 76L301 151M184 102L276 142M466 122L449 160M348 222L409 257" fill="none" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="358" y="62" text-anchor="middle" font-size="20">花東縱谷</text><text x="180" y="96" text-anchor="middle" font-size="20">中央山脈</text><text x="470" y="113" text-anchor="middle" font-size="20">琉球海溝</text>
+<text x="445" y="273" text-anchor="middle" font-size="18">呂宋火山島弧</text><text x="113" y="267" text-anchor="middle" font-size="22">歐亞板塊</text><text x="525" y="304" text-anchor="middle" font-size="22">菲律賓海板塊</text></svg>

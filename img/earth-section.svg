@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 443" role="img" aria-label="地球內部構造剖面與六個標籤"><title>地球內部構造剖面與六個標籤</title><defs>
+<pattern id="grain" width="15" height="12" patternUnits="userSpaceOnUse"><path d="M2 4h3m4 4h4" stroke="#312c28" opacity=".25"/><circle cx="6" cy="10" r=".7" fill="#fff" opacity=".35"/></pattern>
+<pattern id="pebbles" width="28" height="23" patternUnits="userSpaceOnUse"><path d="M5 12Q1 7 6 5Q12 5 11 10Q9 15 5 12ZM18 20Q14 16 19 14Q24 14 23 19Z" fill="#9e9c92" stroke="#574d43" stroke-width="1"/></pattern>
+<pattern id="hatch" width="11" height="11" patternUnits="userSpaceOnUse"><path d="M-2 2L2 -2M0 11L11 0M9 13L13 9" stroke="#856a50" stroke-width="1.5"/></pattern>
+<pattern id="dots" width="16" height="15" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.5" fill="#473d34"/><circle cx="11" cy="10" r="1" fill="#473d34"/></pattern>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#d4342a"/></marker>
+<marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#3a6896"/></marker>
+</defs><style>text{font-family:system-ui,sans-serif;font-weight:800;fill:#1d2730;paint-order:stroke;stroke:white;stroke-width:3.4px;stroke-linejoin:round}</style>
+<defs><radialGradient id="ocean" cx=".36" cy=".3"><stop stop-color="#8ec3d0"/><stop offset="1" stop-color="#3f728c"/></radialGradient>
+<radialGradient id="core"><stop stop-color="#f2c774"/><stop offset="1" stop-color="#c55b47"/></radialGradient>
+<clipPath id="globe"><path d="M296 44A181 181 0 1 0 297 406A181 181 0 0 0 296 44Z" fill="white" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/></clipPath></defs>
+<path d="M296 44A181 181 0 1 0 297 406A181 181 0 0 0 296 44Z" fill="url(#ocean)" stroke="#52707c" stroke-width="2.4" stroke-linejoin="round"/>
+<g clip-path="url(#globe)">
+<path d="M109 99Q144 70 159 80L183 79L199 88L225 87L239 103L258 109L244 128L240 146L221 148L217 159L188 167L175 185L152 179L146 163L130 162L124 146L106 140Z" fill="#79a36a" stroke="#587e5a" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M171 183L190 181L199 195L221 203L235 214L230 226L208 230L192 219L187 206L175 202Z" fill="#79a36a" stroke="#587e5a" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M230 223L250 216L267 232L287 240L284 260L275 283L260 308L251 321L241 336L222 326L220 305L214 286L217 261L208 244Z" fill="#7aa56a" stroke="#587e5a" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M386 255L413 242L427 254L445 255L443 277L431 294L419 312L400 316L385 301L381 284Z" fill="#83a972" stroke="#587e5a" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M136 379L193 364L232 378L263 372L296 386L355 371L385 381L390 410H132Z" fill="#dbe6e3" stroke="none" stroke-width="1.6" stroke-linejoin="round"/>
+</g>
+<path d="M290 50Q386 65 452 140Q477 181 475 226Q462 270 407 291Q341 312 269 293Q249 240 253 173Q254 97 290 50Z" fill="#625042" stroke="#4d463d" stroke-width="2.6" stroke-linejoin="round"/>
+<path d="M290 62Q381 76 443 149Q466 182 465 224Q453 260 401 281Q341 301 278 284Q259 237 263 173Q263 103 290 62Z" fill="#da886f" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M292 71Q376 84 436 153Q456 187 455 222Q444 252 399 272Q340 293 286 274Q270 235 272 174Q272 110 292 71Z" fill="#ead2a9" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M300 123Q356 124 389 168Q403 186 403 216Q391 245 350 253Q324 259 294 250Q285 220 286 177Q286 143 300 123Z" fill="url(#core)" stroke="#935240" stroke-width="2" stroke-linejoin="round"/>
+<path d="M337 174L394 90H515M404 153L422 119H515M469 206H521M477 196H547V168H578M547 195V224H578M376 280L404 329H509M339 290L377 370H509" fill="none" stroke="#53564e" stroke-width="1.8" stroke-linejoin="round"/>
+<circle cx="337" cy="174" r="4" fill="#324340"/><circle cx="404" cy="153" r="4" fill="#324340"/><circle cx="469" cy="206" r="4" fill="#324340"/><circle cx="376" cy="280" r="4" fill="#324340"/><circle cx="339" cy="290" r="4" fill="#324340"/>
+<text x="538" y="95" text-anchor="middle" font-size="20">地核</text><text x="538" y="124" text-anchor="middle" font-size="20">地函</text><text x="548" y="213" text-anchor="middle" font-size="20">地殼</text>
+<text x="620" y="174" text-anchor="middle" font-size="18">大陸地殼</text><text x="620" y="229" text-anchor="middle" font-size="18">海洋地殼</text><text x="548" y="336" text-anchor="middle" font-size="20">岩石圈</text><text x="548" y="378" text-anchor="middle" font-size="20">軟流圈</text></svg>

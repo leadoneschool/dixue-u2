@@ -60,7 +60,7 @@ function makeDraggable(node, opts) {
    1) 圖上熱點標註
    block: {src, points:[{x,y,n,d,tag}], intro, panelTitle}
 ========================================================= */
-function hotspots(b, src) {
+function hotspots(b, media) {
   const wrap = el('div', 'ix ix-hot');
   const head = el('div', 'ix-head');
   head.innerHTML = `<span class="ix-dot"></span><span>圖上標註　點圖中的號碼看說明</span>
@@ -69,9 +69,13 @@ function hotspots(b, src) {
 
   const grid = el('div', 'hotlab');
   const w = el('div', 'hotwrap');
-  const img = el('img'); img.src = src; img.alt = b.panelTitle || '';
-  img.loading = 'lazy';
-  w.appendChild(img);
+  if (typeof media === 'string') {
+    const img = el('img'); img.src = media; img.alt = b.panelTitle || '';
+    img.loading = 'lazy';
+    w.appendChild(img);
+  } else {
+    w.appendChild(media);
+  }
 
   const info = el('div', 'hotinfo empty');
   const reset = () => {
@@ -92,7 +96,8 @@ function hotspots(b, src) {
         (pt.tag ? `<div class="hmeta"><span>${pt.tag}</span></div>` : '');
       done.add(i); mark();
     };
-    w.appendChild(d);
+    const anchor = pt.anchor ? w.querySelector('[data-hot-anchor="' + pt.anchor + '"]') : w;
+    anchor.appendChild(d);
   });
 
   const done = new Set();

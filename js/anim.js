@@ -70,13 +70,13 @@ function driver(step) {
       return playing;
     },
     speed(v) { speed = v; },
-    reset() {
+    reset(resume = true) {
       if (stopped) return;
       pause();
       t = 0;
-      playing = true;
+      playing = resume || playing;
       step(t);
-      raf = requestAnimationFrame(loop);
+      if (playing) raf = requestAnimationFrame(loop);
     },
     stop() { stopped = true; pause(); }
   };

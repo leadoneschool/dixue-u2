@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 436 394" role="img" aria-label="臺灣三大岩類分布"><title>臺灣三大岩類分布</title><defs>
+<pattern id="grain" width="15" height="12" patternUnits="userSpaceOnUse"><path d="M2 4h3m4 4h4" stroke="#312c28" opacity=".25"/><circle cx="6" cy="10" r=".7" fill="#fff" opacity=".35"/></pattern>
+<pattern id="pebbles" width="28" height="23" patternUnits="userSpaceOnUse"><path d="M5 12Q1 7 6 5Q12 5 11 10Q9 15 5 12ZM18 20Q14 16 19 14Q24 14 23 19Z" fill="#9e9c92" stroke="#574d43" stroke-width="1"/></pattern>
+<pattern id="hatch" width="11" height="11" patternUnits="userSpaceOnUse"><path d="M-2 2L2 -2M0 11L11 0M9 13L13 9" stroke="#856a50" stroke-width="1.5"/></pattern>
+<pattern id="dots" width="16" height="15" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.5" fill="#473d34"/><circle cx="11" cy="10" r="1" fill="#473d34"/></pattern>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#d4342a"/></marker>
+<marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#3a6896"/></marker>
+</defs><style>text{font-family:system-ui,sans-serif;font-weight:800;fill:#1d2730;paint-order:stroke;stroke:white;stroke-width:3.4px;stroke-linejoin:round}</style>
+<rect x="22" y="17" width="390" height="343" fill="#eef4f4" stroke="#98a7a1"/>
+<g transform="translate(94 5)">
+<defs><clipPath id="taiwan"><path d="M195 24Q205 13 220 30L233 38L241 53L255 56L249 76L235 91L231 117L225 136L218 156Q206 169 202 194L187 214L178 241L166 260L161 284L157 309L149 322L141 306L127 294L122 276L109 266L98 250L88 228L74 212L69 193L64 177L66 164L73 148L84 130L91 112L108 92L119 78L126 62L144 49L159 39L175 41Z" fill="#fff" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/></clipPath></defs><path d="M195 24Q205 13 220 30L233 38L241 53L255 56L249 76L235 91L231 117L225 136L218 156Q206 169 202 194L187 214L178 241L166 260L161 284L157 309L149 322L141 306L127 294L122 276L109 266L98 250L88 228L74 212L69 193L64 177L66 164L73 148L84 130L91 112L108 92L119 78L126 62L144 49L159 39L175 41Z" fill="#f1ebca" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<g clip-path="url(#taiwan)">
+<path d="M120 62Q157 54 185 32Q215 16 230 42L245 71L226 94Q214 131 216 153L196 202L180 253L151 316L129 291L136 270L111 228L116 206L103 172L113 143L104 125L125 99Z" fill="#ead46b" stroke="#b49d55" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M165 68L220 58L245 81L230 107L223 141L213 168L203 205L183 237L177 263L158 306L139 280L140 247L135 215L146 182L144 155L162 117L158 100Z" fill="#70abb4" stroke="#5a969d" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M212 125Q222 145 209 175Q197 219 178 248L183 216Q190 176 205 144Z" fill="#bc6651" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M193 23Q206 16 222 33L229 44L213 45L203 39L190 48L183 37Z" fill="#b65e4b" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+</g><path d="M195 24Q205 13 220 30L233 38L241 53L255 56L249 76L235 91L231 117L225 136L218 156Q206 169 202 194L187 214L178 241L166 260L161 284L157 309L149 322L141 306L127 294L122 276L109 266L98 250L88 228L74 212L69 193L64 177L66 164L73 148L84 130L91 112L108 92L119 78L126 62L144 49L159 39L175 41Z" fill="none" stroke="#6c7767" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M44 171l7-6 5 4-5 6-6 2Z M33 179l4-5 5 3-2 6Z M48 187l5-4 3 3-2 5Z M183 258l4-4 4 3-4 6Z M189 297l4-3 5 6-4 4Z" fill="#ad6553" stroke="#777065" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="28" y="202" text-anchor="middle" font-size="14">澎湖群島</text><text x="210" y="259" text-anchor="middle" font-size="13">綠島</text><text x="214" y="306" text-anchor="middle" font-size="13">蘭嶼</text><text x="95" y="308" text-anchor="middle" font-size="13">琉球嶼</text>
+</g>
+<rect x="53" y="48" width="31" height="29" fill="#f6f6ef" stroke="#738183"/><rect x="53" y="91" width="31" height="29" fill="#f6f6ef" stroke="#738183"/>
+<path d="M60 58l4-3 4 3-2 4-4 2Z M70 59l4-4 6 3-4 3Z M61 106l5-5 11 2-5 5-8 1Z" fill="#ab624d" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="104" y="67" text-anchor="middle" font-size="14">馬祖</text><text x="104" y="109" text-anchor="middle" font-size="14">金門</text>
+<rect x="33" y="265" width="14" height="14" fill="#ead46b" stroke="none"/><text x="78" y="277" text-anchor="middle" font-size="15">沉積岩</text><rect x="33" y="290" width="14" height="14" fill="#bc6651" stroke="none"/><text x="78" y="302" text-anchor="middle" font-size="15">火成岩</text><rect x="33" y="315" width="14" height="14" fill="#70abb4" stroke="none"/><text x="78" y="327" text-anchor="middle" font-size="15">變質岩</text>
+<text x="215" y="382" text-anchor="middle" font-size="19">臺灣三大岩類分布示意圖</text></svg>

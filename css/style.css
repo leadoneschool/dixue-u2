@@ -574,3 +574,21 @@ text.anim-leg{font-size:13px;font-weight:700;fill:#44535f}
   .figure-table .t th, .figure-table .t td { padding: .4em .28em; font-size: .84rem; }
   .q-optfig { margin-left: 0; }
 }
+
+.earthquake-report { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); align-items: start; gap: .5rem; }
+.earthquake-report-map, .earthquake-report td[data-hot-anchor] { position: relative; }
+.earthquake-report-map img { display: block; width: 100%; }
+.earthquake-report caption { padding: .6rem; font-weight: 800; text-align: left; }
+.earthquake-report .t th { width: 29%; }
+.ix-hot .earthquake-report td[data-hot-anchor] { padding-right: 2.3rem; min-height: 2.4rem; }
+@media (max-width: 520px) {
+  .earthquake-report { grid-template-columns: minmax(0, 1fr); }
+  .earthquake-report-map { max-width: 340px; margin: auto; }
+}
+
+.q-optfig img[src$=".svg"] { display: block; width: 100%; height: auto; }
+.lb-view { width: min(100%, 1100px); height: calc(100% - 90px); display: grid; place-items: center; overflow: auto; overscroll-behavior: contain; }
+.lb-view img { display: block; }
+.lb-view.enlarged { display: block; }
+.lb-view.enlarged img { width: 270%; max-width: none; max-height: none; }
+.lb-zoom { position: absolute; top: 18px; right: 78px; min-height: 42px; padding: 0 1em; border: 0; border-radius: 22px; color: white; background: rgba(255,255,255,.18); font: inherit; cursor: pointer; }

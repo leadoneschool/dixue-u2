@@ -83,12 +83,58 @@ function syncSidebar() {
 const SVG_FIGURES = new Set(['conv-cc', 'law-superposition', 'law-crosscut',
   'fold-anticline', 'mem3-fold2', 'fold-syncline', 'mem3-fold1', 'fold-main', 'mem4-f1', 'mem4-f2', 'mem4-f3', 'seq-example1', 'seq-example2', 'geo-event-fig', 'aftershock-flow',
   'b-q1', 'b-q10', 'b-q9', 'h3-q1', 'h3-q3', 'h3-q4', 'h3-q4-opts', 'lit-q3', 'var-q1', 'b-q13', 'm-q3', 'r3-q1', 'r3-q2', 'b-q11', 'b-q16',
-  'sw-q15', 'r1-q7', 'h2-q2-opts', 'h2-q2', 'r1-q1', 'r1-q5', 'h2-q3']);
+  'sw-q15', 'r1-q7', 'h2-q2-opts', 'h2-q2', 'r1-q1', 'r1-q5', 'h2-q3',
+  'h1-q2-opts', 'seq-q8-opts', 'var-q1-opts', 'h2-q5-opts', 'var-q5-opts', 'm-q2-opts', 'b-q6-opts', 'b-q15-opts', 'b-q23-opts', 'gps-q2-opts', 'm-q5-opts', 'r2-q4-opts', 'h2-q3-opts',
+  'h2-q5-map', 'tw-rift-valley', 'conv-oc', 'r4-q5', 'h4-q2-map', 'h4-q1', 'm-q1', 'tw-3d', 'r4-q1', 'b-q17', 'cwa-report',
+  'andes', 'rift-eastafrica', 'h3-q2', 'lit-q2', 'bridge-photo', 'var-q5', 'm-q4', 'lit-q1', 'comic-b', 'comic-strip', 'fossil-ages', 'mem1-earth', 'mem2-plates', 'seismic-waves', 'var-q3-opts',
+  'tw-rocks', 'b-q21', 'gps-q3', 'read-intensity', 'm-q2', 'gps-map', 'eew-map', 'r2-q2', 'lit-q4', 'h2-q1',
+  'earth-section', 'quake-terms', 'plates-world', 'quake-volcano-map']);
 function imageUrl(name) {
   return 'img/' + name + (SVG_FIGURES.has(name) ? '.svg' : '.webp');
 }
 
+
+function earthquakeReport() {
+  const report = el('div', 'earthquake-report');
+  const info = el('div', 'figure-table');
+  const table = el('table', 't');
+  const caption = table.createCaption();
+  caption.textContent = '中央氣象署　地震報告';
+  const body = table.createTBody();
+  const rows = [
+    ['編號', '第 109001 號'],
+    ['日期', '109 年 1 月 1 日'],
+    ['時間', '3 時 10 分 10.9 秒'],
+    ['位置', '北緯 24.09 度、東經 121.66 度', 'location'],
+    ['地震深度', '7.2 公里', 'depth'],
+    ['芮氏規模', '4.8', 'magnitude'],
+    ['各地最大震度', '花蓮縣太魯閣 4 級、宜蘭縣澳花 3 級、臺中市梨山 2 級、南投縣南投市 1 級', 'intensity']
+  ];
+  for (const [heading, text, anchor] of rows) {
+    const row = body.insertRow();
+    const label = el('th');
+    label.scope = 'row';
+    label.textContent = heading;
+    row.appendChild(label);
+    const cell = row.insertCell();
+    cell.textContent = text;
+    if (anchor) cell.dataset.hotAnchor = anchor;
+  }
+  info.appendChild(table);
+  report.appendChild(info);
+  const map = el('div', 'earthquake-report-map');
+  map.dataset.hotAnchor = 'map';
+  const img = el('img');
+  img.src = imageUrl('cwa-report');
+  img.alt = '地震震度分布圖';
+  img.loading = 'lazy';
+  map.appendChild(img);
+  report.appendChild(map);
+  return report;
+}
+
 function tableFigure(name, label) {
+  if (name === 'cwa-report') return earthquakeReport();
   if (name === 'h1-q2-hint') {
     const hint = el('p', 'figure-hint');
     hint.textContent = '提示：甲、乙、丙三構造中，甲的密度最大。';
@@ -189,7 +235,7 @@ function renderBlock(b) {
       (window.__animNodes = window.__animNodes || []).push(n);
       return n;
     }
-    case 'hotspots': return IX.hotspots(b, imageUrl(b.src));
+    case 'hotspots': return IX.hotspots(b, b.src === 'cwa-report' ? earthquakeReport() : imageUrl(b.src));
     case 'order':    return IX.order(b);
     case 'sort':     return IX.sortInto(b);
     case 'bigterm': {
@@ -388,12 +434,12 @@ function labShell(title, hint) {
 
 /* --- 地球內部構造：熱點 --- */
 const EARTH_HOT = [
-  { x: 62, y: 15, n: '地核', d: '地球最內層，主要由<b>鐵、鎳</b>等金屬組成，密度最大。', c: '金屬（鐵、鎳）', den: '大', th: '約 3470 km' },
-  { x: 62, y: 26, n: '地函', d: '介於地殼與地核之間，主要由岩石（<b>橄欖岩</b>）組成。軟流圈就位在地函裡。', c: '岩石（橄欖岩）', den: '中', th: '約 2900 km' },
-  { x: 77, y: 37, n: '大陸地殼', d: '地殼的一種，主要由<b>花岡岩</b>組成，<b>較厚但密度最小</b>。', c: '岩石（花岡岩）', den: '最小', th: '約 40 km' },
-  { x: 77, y: 49, n: '海洋地殼', d: '地殼的一種，主要由<b>玄武岩</b>組成，<b>較薄但密度較大</b>，推擠時會隱沒到大陸地殼下方。', c: '岩石（玄武岩）', den: '小', th: '約 7 km' },
-  { x: 53, y: 75, n: '岩石圈', d: '<b>地殼＋地函最上部</b>，為固態岩石。岩石圈的碎塊就是<b>板塊</b>，會隨軟流圈流動而移動。', c: '地殼＋小部分地函', den: '—', th: '約 100 km' },
-  { x: 53, y: 91, n: '軟流圈', d: '位於<b>地函</b>，呈熔融狀態、具可塑性與流動性，有<b>熱對流</b>現象，會帶動板塊移動。', c: '屬於地函', den: '—', th: '約 150 km' }
+  { x: 46, y: 43, n: '地核', d: '地球最內層，主要由<b>鐵、鎳</b>等金屬組成，密度最大。', c: '金屬（鐵、鎳）', den: '大', th: '約 3470 km' },
+  { x: 57, y: 35, n: '地函', d: '介於地殼與地核之間，主要由岩石（<b>橄欖岩</b>）組成。軟流圈就位在地函裡。', c: '岩石（橄欖岩）', den: '中', th: '約 2900 km' },
+  { x: 83, y: 35, n: '大陸地殼', d: '地殼的一種，主要由<b>花岡岩</b>組成，<b>較厚但密度最小</b>。', c: '岩石（花岡岩）', den: '最小', th: '約 40 km' },
+  { x: 83, y: 53, n: '海洋地殼', d: '地殼的一種，主要由<b>玄武岩</b>組成，<b>較薄但密度較大</b>，推擠時會隱沒到大陸地殼下方。', c: '岩石（玄武岩）', den: '小', th: '約 7 km' },
+  { x: 57, y: 65, n: '岩石圈', d: '<b>地殼＋地函最上部</b>，為固態岩石。岩石圈的碎塊就是<b>板塊</b>，會隨軟流圈流動而移動。', c: '地殼＋小部分地函', den: '—', th: '約 100 km' },
+  { x: 51, y: 78, n: '軟流圈', d: '位於<b>地函</b>，呈熔融狀態、具可塑性與流動性，有<b>熱對流</b>現象，會帶動板塊移動。', c: '屬於地函', den: '—', th: '約 150 km' }
 ];
 function labEarth(host) {
   const s = labShell('互動剖面圖　點選圓點查看各層', '共 6 個標籤');
@@ -548,10 +594,10 @@ function labFault(host) {
 
 /* --- 地震名詞：熱點 --- */
 const QUAKE_HOT = [
-  { x: 31, y: 43, n: '震央', d: '<b>震源正上方的地表位置</b>。離震央越近，震度通常越大。' },
-  { x: 31, y: 60, n: '震源', d: '地底下<b>岩層破裂、錯動而引發地震之處</b>，也是地震波開始傳出的地方。' },
-  { x: 40, y: 52, n: '震源深度', d: '<b>震源到震央（地表）的垂直距離</b>。深度越淺，地表感受到的搖晃通常越劇烈。' },
-  { x: 76, y: 80, n: '地震波', d: '由震源向四面八方傳出的波動。科學家就是用它來探測地球內部構造。' }
+  { x: 41, y: 44, n: '震央', d: '<b>震源正上方的地表位置</b>。離震央越近，震度通常越大。' },
+  { x: 41, y: 64, n: '震源', d: '地底下<b>岩層破裂、錯動而引發地震之處</b>，也是地震波開始傳出的地方。' },
+  { x: 49, y: 55, n: '震源深度', d: '<b>震源到震央（地表）的垂直距離</b>。深度越淺，地表感受到的搖晃通常越劇烈。' },
+  { x: 75, y: 74, n: '地震波', d: '由震源向四面八方傳出的波動。科學家就是用它來探測地球內部構造。' }
 ];
 function labQuake(host) {
   const s = labShell('地震名詞互動圖　點選圓點查看定義', '共 4 個名詞');
@@ -578,7 +624,7 @@ function labQuake(host) {
 
 /* --- 兩張世界地圖疊合 --- */
 function labMaps(host) {
-  const s = labShell('全球板塊分布 vs 地震火山分布　拖動滑桿疊合兩張圖', '講義 P.29 原圖');
+  const s = labShell('全球板塊分布 vs 地震火山分布　拖動滑桿疊合兩張圖', '海岸線與觀測資料');
   const w = el('div', 'maplay');
   const a = el('img'); a.src = imageUrl("plates-world");
   const b = el('img', 'ov'); b.src = imageUrl("quake-volcano-map");
@@ -742,9 +788,18 @@ function go(i) {
    ======================================================= */
 function lightbox(src, cap) {
   const o = $('#lb');
+  setLightboxZoom(false);
   $('#lbimg').src = src;
   $('#lbcap').textContent = cap || '';
   o.classList.add('on');
+}
+function setLightboxZoom(enlarged) {
+  const view = $('#lbview');
+  view.classList.toggle('enlarged', enlarged);
+  view.scrollTo(0, 0);
+  const button = $('#lbzoom');
+  button.setAttribute('aria-pressed', String(enlarged));
+  button.textContent = enlarged ? '縮小' : '放大';
 }
 let scanPage = 1;
 function openScan(n) {
@@ -773,7 +828,8 @@ function init() {
   $('#burger').onclick = () => { $('#sidebar').classList.toggle('open'); $('#scrim').classList.toggle('on'); };
   $('#scrim').onclick = closeDrawer;
   $('#srcchip').onclick = () => openScan(PAGES[cur].src);
-  $('#lb').onclick = e => { if (e.target.id !== 'lbimg') $('#lb').classList.remove('on'); };
+  $('#lb').onclick = e => { if (e.target === $('#lb')) $('#lb').classList.remove('on'); };
+  $('#lbzoom').onclick = () => setLightboxZoom(!$('#lbview').classList.contains('enlarged'));
   $('#lbx').onclick = () => $('#lb').classList.remove('on');
   $('#scanx').onclick = () => $('#scan').classList.remove('on');
   $('#scanprev').onclick = e => { e.stopPropagation(); if (scanPage > 1) { scanPage--; paintScan(); } };
