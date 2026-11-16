@@ -91,10 +91,27 @@ const RICH = {
   ]
 },
 
+'c2-diverge': {
+  lab: null,
+  lede: '板塊被拉開時，底下的岩漿會湧上來補位、冷卻成新的海洋地殼。按播放看完整過程。',
+  blocks: [
+    { t: 'anim', kind: 'ridge' },
+    { t: 'facts', cols: 3, items: [
+      { k: '海底', v: '中洋脊', d: '綿延的海底火山山脈。湧出的<b>玄武岩質岩漿</b>冷卻後形成新的<b>海洋地殼</b>。' },
+      { k: '露出海面', v: '成島', d: '中洋脊頂部若露出海面就形成島嶼。<span class="eg">例</span>冰島。' },
+      { k: '陸地', v: '裂谷', d: '交界位於陸地時，地殼被拉開形成裂谷。<span class="eg">例</span>東非大裂谷。' }
+    ]},
+    { t: 'callout', tone: 'key', title: '為什麼年齡會對稱分布',
+      body: '新地殼一直從中洋脊「長」出來，把舊的往兩側推。所以<b>離中洋脊越遠、年齡越老</b>，而且左右兩側<b>對稱</b>——這是板塊運動最有力的證據之一。' },
+    { t: 'fig', src: 'rift-eastafrica', cap: '東非大裂谷：交界位於陸地時形成的裂谷', zoom: true, half: true }
+  ]
+},
+
 'c2-converge-oc': {
   lab: null,
   lede: '海洋地殼平均密度比大陸地殼大，所以推擠時海洋地殼會隱沒到大陸地殼下方。點圖上的號碼，把這張圖的七個重點認清楚。',
   blocks: [
+    { t: 'anim', kind: 'subduction' },
     { t: 'hotspots', src: 'conv-oc', panelTitle: '海洋 × 大陸　互相推擠',
       intro: '一次推擠同時造出三種地形：海溝、山脈、火山。點號碼看每個位置發生什麼事。',
       points: [
@@ -231,8 +248,10 @@ const RICH = {
 },
 
 'c3-fault': {
-  lede: '岩層受力斷裂並沿著斷裂面錯動，就是斷層。拖動滑桿，讓講義上的岩塊真的沿著斷層面滑動；接著做下面的分類練習。',
+  lab: null,
+  lede: '岩層受力斷裂並沿著斷裂面錯動，就是斷層。切換三種類型看它們怎麼動，接著做下面的分類練習。',
   blocks: [
+    { t: 'anim', kind: 'fault' },
     { t: 'callout', tone: 'key', title: '上盤與下盤',
       body: '斷層面是傾斜的。位在斷層面<b>上方</b>的岩塊叫<b>上盤</b>，<b>下方</b>的叫<b>下盤</b>。判斷斷層種類，看的就是<b>上盤相對於下盤往哪移動</b>。' },
     { t: 'sort', title: '分類練習　三種斷層',

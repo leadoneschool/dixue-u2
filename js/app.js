@@ -144,6 +144,11 @@ function renderBlock(b) {
       });
       return g;
     }
+    case 'anim': {
+      const n = ANIM[b.kind]();
+      (window.__animNodes = window.__animNodes || []).push(n);
+      return n;
+    }
     case 'hotspots': return IX.hotspots(b);
     case 'order':    return IX.order(b);
     case 'sort':     return IX.sortInto(b);
@@ -701,6 +706,8 @@ function markSeen(page) {
 function render() {
   const p = PAGES[cur];
   const stage = $('#stage');
+  (window.__animNodes || []).forEach(n => { try { n._stop && n._stop(); } catch (e) {} });
+  window.__animNodes = [];
   (stage._stops || []).forEach(f => { try { f(); } catch (e) {} });
   stage._stops = [];
   stage.innerHTML = '';
