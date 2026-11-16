@@ -81,7 +81,9 @@ function syncSidebar() {
    ======================================================= */
 
 const SVG_FIGURES = new Set(['conv-cc', 'law-superposition', 'law-crosscut',
-  'fold-anticline', 'mem3-fold2', 'fold-syncline', 'mem3-fold1', 'fold-main', 'mem4-f1', 'mem4-f2', 'mem4-f3', 'seq-example1', 'seq-example2', 'geo-event-fig', 'aftershock-flow']);
+  'fold-anticline', 'mem3-fold2', 'fold-syncline', 'mem3-fold1', 'fold-main', 'mem4-f1', 'mem4-f2', 'mem4-f3', 'seq-example1', 'seq-example2', 'geo-event-fig', 'aftershock-flow',
+  'b-q1', 'b-q10', 'b-q9', 'h3-q1', 'h3-q3', 'h3-q4', 'h3-q4-opts', 'lit-q3', 'var-q1', 'b-q13', 'm-q3', 'r3-q1', 'r3-q2', 'b-q11', 'b-q16',
+  'sw-q15', 'r1-q7', 'h2-q2-opts', 'h2-q2', 'r1-q1', 'r1-q5', 'h2-q3']);
 function imageUrl(name) {
   return 'img/' + name + (SVG_FIGURES.has(name) ? '.svg' : '.webp');
 }

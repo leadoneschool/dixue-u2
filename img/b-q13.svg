@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 502 270" role="img" aria-label="岩脈與沉積岩層"><title>岩脈與沉積岩層</title><defs>
+<pattern id="grain" width="15" height="12" patternUnits="userSpaceOnUse"><path d="M2 4h3m4 4h4" stroke="#312c28" opacity=".25"/><circle cx="6" cy="10" r=".7" fill="#fff" opacity=".35"/></pattern>
+<pattern id="pebbles" width="28" height="23" patternUnits="userSpaceOnUse"><path d="M5 12Q1 7 6 5Q12 5 11 10Q9 15 5 12ZM18 20Q14 16 19 14Q24 14 23 19Z" fill="#9e9c92" stroke="#574d43" stroke-width="1"/></pattern>
+<pattern id="hatch" width="11" height="11" patternUnits="userSpaceOnUse"><path d="M-2 2L2 -2M0 11L11 0M9 13L13 9" stroke="#856a50" stroke-width="1.5"/></pattern>
+<pattern id="dots" width="16" height="15" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.5" fill="#473d34"/><circle cx="11" cy="10" r="1" fill="#473d34"/></pattern>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#d4342a"/></marker>
+<marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#3a6896"/></marker>
+</defs><style>text{font-family:system-ui,sans-serif;font-weight:800;fill:#1d2730;paint-order:stroke;stroke:white;stroke-width:3.4px;stroke-linejoin:round}</style>
+<path d="M22 84H177L235 37H373V238H22Z" fill="#a0a397" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/><path d="M22 84H177L235 37H373V82H214L184 119H22Z" fill="#dfc5a4" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/><path d="M22 84H177L235 37H373V82H214L184 119H22Z" fill="url(#dots)" stroke="none" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M22 156H150L178 126H373V169H171L140 190H22Z" fill="#b88b73" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/><path d="M22 156H150L178 126H373V169H171L140 190H22Z" fill="url(#hatch)" stroke="none" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M127 84Q165 44 221 84L309 238H246Z" fill="#bd8c75" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/><path d="M127 84Q165 44 221 84L309 238H246Z" fill="url(#grain)" stroke="none" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M127 238L172 168M184 119L235 37M383 39Q393 38 393 48V228Q393 239 383 239" fill="none" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="177" y="37" text-anchor="middle" font-size="23">岩脈</text><text x="424" y="98" text-anchor="middle" font-size="23">沉</text><text x="424" y="125" text-anchor="middle" font-size="23">積</text><text x="424" y="152" text-anchor="middle" font-size="23">岩</text><text x="424" y="179" text-anchor="middle" font-size="23">層</text></svg>
