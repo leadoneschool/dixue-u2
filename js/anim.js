@@ -48,21 +48,37 @@ function controls(ctrl, api) {
 
 /* 驅動器 */
 function driver(step) {
-  let raf = null, t = 0, last = 0, sp = 1, on = true;
+  let raf = null, t = 0, last = null, speed = 1, playing = true, stopped = false;
   function loop(now) {
-    if (!last) last = now;
-    const dt = Math.min(0.05, (now - last) / 1000) * sp;
+    if (last !== null) t += Math.min(.05, (now - last) / 1000) * speed;
     last = now;
-    if (on) t += dt;
     step(t);
     raf = requestAnimationFrame(loop);
   }
+  function pause() {
+    if (raf !== null) cancelAnimationFrame(raf);
+    raf = last = null;
+  }
+  step(0);
   raf = requestAnimationFrame(loop);
   return {
-    toggle() { on = !on; return on; },
-    speed(v) { sp = v; },
-    reset() { t = 0; on = true; step(0); },
-    stop() { if (raf) cancelAnimationFrame(raf); raf = null; }
+    toggle() {
+      if (stopped) return false;
+      playing = !playing;
+      if (playing) raf = requestAnimationFrame(loop);
+      else pause();
+      return playing;
+    },
+    speed(v) { speed = v; },
+    reset(resume = true) {
+      if (stopped) return;
+      pause();
+      t = 0;
+      playing = resume || playing;
+      step(t);
+      if (playing) raf = requestAnimationFrame(loop);
+    },
+    stop() { stopped = true; pause(); }
   };
 }
 
@@ -89,7 +105,10 @@ function ridge() {
      orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#fff"/></marker>
    <marker id="rg-ary" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5"
      orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ffe36b"/></marker>
-   <clipPath id="rg-scene"><rect x="0" y="0" width="${W}" height="${H}"/></clipPath>`;
+   <pattern id="rg-grain" width="24" height="19" patternUnits="userSpaceOnUse">
+  <path d="M2 5h6m6 8h7M9 16l4-1m4-14l4 1" stroke="#302720" opacity=".26"/>
+  <circle cx="3" cy="13" r="1" fill="#fff" opacity=".32"/>
+</pattern><clipPath id="rg-scene"><rect x="0" y="0" width="${W}" height="${H}"/></clipPath>`;
   svg.appendChild(defs);
   const scene = S('g', { 'clip-path': 'url(#rg-scene)' });
   svg.appendChild(scene);
@@ -97,8 +116,9 @@ function ridge() {
   const topY = x => 212 + 58 * Math.pow(clamp(Math.abs(x - AX) / 430, 0, 1), .62);
   const botY = x => topY(x) + 42 + 38 * clamp(Math.abs(x - AX) / 430, 0, 1);
 
+  scene.appendChild(S('rect', { width: W, height: H, fill: '#dceaf2' }));
   // 軟流圈
-  scene.appendChild(S('rect', { x: 0, y: 300, width: W, height: H - 300, fill: 'url(#rg-ast)' }));
+  scene.appendChild(S('rect', { x: 0, y: 250, width: W, height: H - 250, fill: 'url(#rg-ast)' }));
   // 海水
   const seaPath = ['M0,46', `L${W},46`, `L${W},${botY(W)}`];
   for (let x = W; x >= 0; x -= 10) seaPath.push(`L${x},${topY(x)}`);
@@ -116,7 +136,6 @@ function ridge() {
   // 岩漿囊
   scene.appendChild(S('ellipse', { cx: AX, cy: 322, rx: 96, ry: 54, fill: 'url(#rg-magma)' }));
   const plume = S('path', { fill: 'url(#rg-magma)', opacity: .95 });
-  scene.appendChild(plume);
 
   // 地殼底層（避免兩側留白）
   const baseCrust = S('path', { fill: '#454c57' });
@@ -161,7 +180,8 @@ function ridge() {
     const txt = S('text', { x, y, 'text-anchor': 'middle' }); txt.textContent = t;
     g.appendChild(txt); svg.appendChild(g); return g;
   };
-  lab(AX, 186, '中洋脊');
+  lab(AX, 156, '中洋脊');
+  lab(AX, 194, '新生海洋地殼');
   lab(120, 120, '海　水', 'light');
   lab(AX, 352, '岩漿上升', 'light');
   lab(AX, 500, '軟流圈熱對流上升', 'light');
@@ -191,14 +211,17 @@ function ridge() {
   });
   cap.textContent = '海底擴張：新的海洋地殼在中洋脊生成，再被推向兩側。';
 
-  baseCrust.setAttribute('d', band(0, W));
+  const crustShape = band(0, W);
+  baseCrust.setAttribute('d', crustShape);
+  scene.insertBefore(S('path', { d: crustShape, fill: 'url(#rg-grain)' }), flash);
+  scene.insertBefore(plume, flash);
   const drv = driver(t => {
-    const cyc = 2.6;                      // 每 2.6 秒生成一條新地殼
+    const cyc = 10;
     const phase = (t % cyc) / cyc;
     for (const s of stripes) {
-      const age = ((s.i + phase) / N);
+      const age = (s.i + (s.i ? phase : 0)) / N;
       const x1 = AX + s.sgn * age * SPAN;
-      const x2 = AX + s.sgn * (age + 1 / N) * SPAN;
+      const x2 = AX + s.sgn * (age + (s.i ? 1 : 1 + phase) / N) * SPAN;
       const a = Math.min(x1, x2), b = Math.max(x1, x2);
       s.node.setAttribute('d', band(a, b));
       s.node.setAttribute('fill', mix('#e2743a', '#454c57', Math.pow(age, .55)));
@@ -208,7 +231,8 @@ function ridge() {
     plume.setAttribute('d', `M${AX - pw},322 C${AX - pw},268 ${AX - pw * .7},236 ${AX},216
       C${AX + pw * .7},236 ${AX + pw},268 ${AX + pw},322 Z`);
     // 噴發
-    const e = phase < .18 ? 1 - phase / .18 : 0;
+    const eruption = (phase - .5) / .25;
+    const e = eruption > 0 && eruption < 1 ? Math.sin(eruption * Math.PI) : 0;
     flash.setAttribute('r', 8 + 42 * e); flash.setAttribute('opacity', .75 * e);
     lava.setAttribute('opacity', .9 * e);
     lava.setAttribute('d', `M${AX - 34},216 Q${AX},${206 - 26 * e} ${AX + 34},216 Q${AX},228 ${AX - 34},216 Z`);
@@ -216,7 +240,6 @@ function ridge() {
     const off = -(t * 44) % 24;
     [cellL, cellR, arL, arR].forEach(n => n.setAttribute('stroke-dashoffset', off));
     arL.setAttribute('stroke-dasharray', '14 10'); arR.setAttribute('stroke-dasharray', '14 10');
-    stageLabel.textContent = STAGES[Math.floor((t / cyc) % 4 * 1) % 4] || STAGES[0];
     stageLabel.textContent = STAGES[Math.min(3, Math.floor(phase * 4))];
   });
   wrap._stop = () => drv.stop();
@@ -248,7 +271,10 @@ function subduction() {
      <stop offset=".5" stop-color="#ff7f2a"/><stop offset="1" stop-color="#e03c15" stop-opacity="0"/></radialGradient>
    <marker id="sb-ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5"
      orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#fff"/></marker>
-   <clipPath id="sb-scene"><rect x="0" y="0" width="${W}" height="${H}"/></clipPath>`;
+   <pattern id="sb-grain" width="24" height="19" patternUnits="userSpaceOnUse">
+  <path d="M2 5h6m6 8h7M9 16l4-1m4-14l4 1" stroke="#302720" opacity=".26"/>
+  <circle cx="3" cy="13" r="1" fill="#fff" opacity=".32"/>
+</pattern><clipPath id="sb-scene"><rect x="0" y="0" width="${W}" height="${H}"/></clipPath>`;
   svg.appendChild(defs);
   const scene = S('g', { 'clip-path': 'url(#sb-scene)' });
   svg.appendChild(scene);
@@ -268,17 +294,22 @@ function subduction() {
   const slabLen = slabPath.getTotalLength();
   const gSlab = S('g');
   scene.appendChild(gSlab);
+  const solidSlab = S('path', { fill: '#39404a' });
+  const slabGrain = S('path', { fill: 'url(#sb-grain)' });
+  gSlab.appendChild(solidSlab);
   const NSEG = 24, segs = [];
   for (let i = 0; i < NSEG; i++) {
     const n = S('path', { stroke: '#1d2128', 'stroke-width': 1 });
     gSlab.appendChild(n); segs.push({ node: n, i });
   }
 
+  gSlab.appendChild(slabGrain);
   // 大陸岩石圈（蓋住部分隱沒板塊，呈現「沒入下方」）
   const landTop = `M${TRX + 2},318 L${TRX + 34},244 L${600},${SEA}
      L${646},132 Q${700},40 ${756},118 Q${812},176 ${872},136 L${W},128`;
-  scene.appendChild(S('path', { d: `${landTop} L${W},${LBASE} Q${TRX + 150},${LBASE + 6} ${TRX + 2},318 Z`,
-    fill: 'url(#sb-cont)', stroke: '#6f5326', 'stroke-width': 2 }));
+  const continent = `${landTop} L${W},${LBASE} Q${TRX + 150},${LBASE + 6} ${TRX + 2},318 Z`;
+  scene.appendChild(S('path', { d: continent, fill: 'url(#sb-cont)', stroke: '#6f5326', 'stroke-width': 2 }));
+  scene.appendChild(S('path', { d: continent, fill: 'url(#sb-grain)' }));
   scene.appendChild(S('path', { d: `${landTop} L${W},${158} Q${860},168 ${800},188
      Q${740},92 ${684},150 L${620},${SEA + 8} L${600},${SEA} Z`, fill: '#6fa84a', opacity: .95 }));
 
@@ -314,8 +345,8 @@ function subduction() {
   lab(TRX + 6, 212, '海　溝');
   lab(220, 210, '海　水', 'light');
   lab(250, 312, '海洋地殼', 'dark');
-  lab(VX, 32, '火　山');
-  lab(886, 94, '山脈（造山運動）');
+  lab(VX, 39, '火山');
+  lab(862, 99, '山脈（造山運動）');
   lab(150, 470, '軟流圈', 'light');
   lab(742, 492, '熔融成岩漿', 'light');
   lab(820, 250, '大陸地殼', 'dark');
@@ -344,8 +375,11 @@ function subduction() {
     return f.length ? 'M' + f.join(' L') + ' L' + back.join(' L') + ' Z' : '';
   }
 
+  const slabOutline = slabBand(0, slabLen);
+  solidSlab.setAttribute('d', slabOutline);
+  slabGrain.setAttribute('d', slabOutline);
   const drv = driver(t => {
-    const cyc = 3.2, phase = (t % cyc) / cyc, step = slabLen / NSEG;
+    const cyc = 9.6, phase = (t % cyc) / cyc, step = slabLen / NSEG;
     for (const sg of segs) {
       const d0 = ((sg.i + phase) % NSEG) * step;
       sg.node.setAttribute('d', slabBand(d0, d0 + step * .84));
@@ -361,7 +395,8 @@ function subduction() {
       bb.setAttribute('r', lerp(7, 13, u));
       bb.setAttribute('opacity', u < .08 ? u / .08 : (u > .92 ? (1 - u) / .08 : 1));
     });
-    const e = phase < .22 ? 1 - phase / .22 : 0;
+    const eruption = (phase - .75) / .25;
+    const e = eruption <= 0 ? 0 : Math.sin(eruption * Math.PI);
     ash.setAttribute('opacity', .5 * e);
     ash.setAttribute('d', `M${VX - 20},${VY + 14} C${VX - 74},${VY - 56 * e} ${VX + 74},${VY - 84 * e}
        ${VX + 22},${VY + 14} Z`);
@@ -390,7 +425,10 @@ function fault() {
      orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d4342a"/></marker>
    <clipPath id="ft-fw"><path id="ft-fwp"/></clipPath>
    <clipPath id="ft-hw"><path id="ft-hwp"/></clipPath>
-   <clipPath id="ft-scene"><rect x="0" y="0" width="${W}" height="${H}"/></clipPath>
+   <pattern id="ft-grain" width="24" height="19" patternUnits="userSpaceOnUse">
+  <path d="M2 5h6m6 8h7M9 16l4-1m4-14l4 1" stroke="#302720" opacity=".26"/>
+  <circle cx="3" cy="13" r="1" fill="#fff" opacity=".32"/>
+</pattern><clipPath id="ft-scene"><rect x="0" y="0" width="${W}" height="${H}"/></clipPath>
    <pattern id="ft-face" width="10" height="10" patternUnits="userSpaceOnUse"
      patternTransform="rotate(38)">
      <rect width="10" height="10" fill="#7a5f3d"/>
@@ -418,17 +456,18 @@ function fault() {
       host.appendChild(S('rect', { x: -400, y: b.y + b.h - 2, width: W + 800, height: 2, fill: '#00000022' }));
     });
   });
-  const grassFW = S('rect', { x: -400, y: TOP - 10, width: W + 800, height: 12, fill: '#6fa84a' });
-  const grassHW = S('rect', { x: -400, y: TOP - 10, width: W + 800, height: 12, fill: '#6fa84a' });
-  fwStrata.insertBefore(grassFW, fwStrata.firstChild);
-  hwStrata.insertBefore(grassHW, hwStrata.firstChild);
+  for (const layers of [fwStrata, hwStrata]) {
+    layers.appendChild(S('rect', { x: -400, y: 92, width: W + 800, height: 570, fill: 'url(#ft-grain)' }));
+  }
+  for (const layers of [fwStrata, hwStrata]) {
+    layers.appendChild(S('rect', { x: -400, y: TOP - 7, width: W + 800, height: 10, fill: '#6fa84a' }));
+  }
   gFW.appendChild(fwStrata); gHW.appendChild(hwStrata);
   const fwLine = S('path', { fill: 'none', stroke: '#3b2f22', 'stroke-width': 2.4 });
-  const hwLine = S('path', { fill: 'none', stroke: 'none' });
-  gFW.appendChild(fwLine); gHW.appendChild(hwLine);
+  gFW.appendChild(fwLine);
   const faceFill = S('path', { fill: 'url(#ft-face)', stroke: '#4a3a22', 'stroke-width': 1.6 });
-  scene.appendChild(faceFill);
   scene.appendChild(gFW); scene.appendChild(gHW);
+  scene.appendChild(faceFill);
 
   // 俯視（平移斷層）
   const gMap = S('g', { opacity: 0 });
@@ -477,7 +516,7 @@ function fault() {
   let cur = 'normal';
   Object.keys(TYPES).forEach((k, i) => {
     const b = el('button', i === 0 ? 'on' : '', TYPES[k].name);
-    b.onclick = () => { cur = k; Array.from(seg.children).forEach(x => x.classList.remove('on')); b.classList.add('on'); drv.reset(); };
+    b.onclick = () => { cur = k; Array.from(seg.children).forEach(x => x.classList.remove('on')); b.classList.add('on'); drv.reset(false); };
     seg.appendChild(b);
   });
 
@@ -509,23 +548,25 @@ function fault() {
       mapB.setAttribute('transform', `translate(${-d * 1.5},0)`);
       f1.setAttribute('d', `M630,120 L810,120`);
       f2.setAttribute('d', `M570,336 L390,336`);
-      stageLabel.textContent = `平移斷層：受水平作用力，兩側岩層沿斷層面<b>水平錯開</b>`.replace(/<[^>]+>/g, '');
+      stageLabel.textContent = grow < .35 ? '① 岩塊受方向相反的水平力' : '② 河流沿斷層水平錯開';
     } else {
       const th = T.dip * Math.PI / 180;
       const ux = Math.cos(th), uy = Math.sin(th);      // 沿斷層面向下的方向
       const dx = T.dir * d * ux, dy = T.dir * d * uy;
-      const xTop = faultLineX(TOP - 160, T.dip), xBot = faultLineX(BOT + 260, T.dip);
-      const fw = `M-400,${TOP - 160} L${xTop},${TOP - 160} L${xBot},${BOT + 260} L-400,${BOT + 260} Z`;
-      const hw = `M${xTop},${TOP - 160} L${W + 400},${TOP - 160} L${W + 400},${BOT + 260} L${xBot},${BOT + 260} Z`;
+      const xTop = faultLineX(TOP - 160, T.dip), xBot = faultLineX(H + 260, T.dip);
+      const fw = `M-400,${TOP - 160} L${xTop},${TOP - 160} L${xBot},${H + 260} L-400,${H + 260} Z`;
+      const hw = `M${xTop},${TOP - 160} L${W + 400},${TOP - 160} L${W + 400},${H + 260} L${xBot},${H + 260} Z`;
       defs.querySelector('#ft-fwp').setAttribute('d', fw);
       defs.querySelector('#ft-hwp').setAttribute('d', hw);
-      fwLine.setAttribute('d', `M${xTop},${TOP} L${xBot},${BOT}`);
-      hwLine.setAttribute('d', `M${xTop},${TOP} L${xBot},${BOT}`);
+      const atTop = faultLineX(TOP, T.dip);
+      const atBase = faultLineX(H, T.dip);
+      const junctionY = Math.max(TOP, TOP + dy);
+      fwLine.setAttribute('d', `M${faultLineX(junctionY, T.dip)},${junctionY} L${atBase},${H}`);
       gHW.setAttribute('transform', `translate(${dx},${dy})`);
       gFW.setAttribute('transform', 'translate(0,0)');
       faceFill.setAttribute('opacity', d > 1 ? 1 : 0);
-      faceFill.setAttribute('d',
-        `M${xTop},${TOP - 160} L${xBot},${BOT + 260} L${xBot + dx},${BOT + 260 + dy} L${xTop + dx},${TOP - 160 + dy} Z`);
+      const ridgeX = T.dir > 0 ? atTop - 13 : atTop + dx + 13;
+      faceFill.setAttribute('d', `M${atTop},${TOP} L${atTop + dx},${TOP + dy} L${ridgeX},${Math.min(TOP, TOP + dy) + 4}Z`);
       lHW.setAttribute('transform', `translate(${dx},${dy})`);
       if (T.dir > 0) {   // 正斷層：向外拉
         f1.setAttribute('d', 'M250,250 L120,250');
@@ -536,7 +577,7 @@ function fault() {
       }
       const lx = faultLineX(316, T.dip);
       lPL.setAttribute('transform', `translate(${lx - 88},318)`);
-      stageLabel.textContent = `${T.name}：受${T.force}，${T.move}`;
+      stageLabel.textContent = grow < .35 ? `① 岩層受到${T.force}` : `② ${T.move}`;
     }
     cap.textContent = `${T.name}　作用力：${T.force}　·　${T.move}　·　常見於${T.where}`;
   });
@@ -544,5 +585,101 @@ function fault() {
   return wrap;
 }
 
-root.ANIM = { ridge, subduction, fault };
+
+/* 中央上升，沿板塊底部外移，沿兩側海溝下降。 */
+function convection() {
+  const { wrap, stage, cap, ctrl } = shell('軟流圈熱對流', '剖面動畫');
+  const svg = S('svg', { class: 'anim-svg reading-svg', viewBox: '0 0 560 342',
+    role: 'img', 'aria-label': '中洋脊兩側的岩石圈向外移動，在海溝處向下隱沒' });
+  stage.appendChild(svg);
+  svg.innerHTML = `
+    <defs>
+      <linearGradient id="cv-water" x2="0%" y2="100%"><stop stop-color="#8fc6e6"/><stop offset="1" stop-color="#2f6f96"/></linearGradient>
+      <linearGradient id="cv-mantle" x2="0%" y2="100%"><stop stop-color="#e2602b"/><stop offset="1" stop-color="#f7c65a"/></linearGradient>
+      <linearGradient id="cv-slab"><stop stop-color="#39404a"/><stop offset=".8" stop-color="#39404a"/><stop offset="1" stop-color="#ca582a" stop-opacity="0"/></linearGradient>
+      <linearGradient id="cv-new" x2="0%" y2="100%"><stop stop-color="#873f2b"/><stop offset="1" stop-color="#ffc45b"/></linearGradient>
+      <pattern id="cv-grain" width="18" height="14" patternUnits="userSpaceOnUse">
+        <path d="M1 4h4m5 6h5M7 1l3 1m5 11h2" stroke="#201f23" stroke-opacity=".28"/>
+        <circle cx="2" cy="11" r=".8" fill="#fff" opacity=".35"/>
+      </pattern>
+      <path id="cv-side" d="M279 107 Q261 124 230 129 L128 134 Q105 137 93 156
+        Q80 188 49 223 L29 243 L37 253 Q85 222 109 181 Q119 160 139 158
+        L237 150 Q261 147 279 130Z"/>
+      <path id="cv-rim" d="M0 92 Q27 76 54 103 L94 153 Q107 139 121 136
+        Q98 166 86 187 Q46 156 0 158Z"/>
+      <path id="cv-cell" d="M253 253 C264 215 267 171 240 171 C217 169 184 173 160 180
+        C134 188 122 212 118 234 C104 290 156 305 199 290 Q241 280 253 253Z"/>
+      <marker id="cv-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+        <path d="M0 0L10 5L0 10Z" fill="#fff"/>
+      </marker>
+    </defs>
+    <rect width="560" height="342" fill="url(#cv-mantle)"/>
+    <path d="M0 0H560V146L467 153Q446 132 416 133L324 128Q299 125 280 107Q261 125 236 128L144 133Q114 132 93 153L0 146Z" fill="url(#cv-water)"/>
+    <g fill="none" opacity=".27" stroke="#fff">
+      <path d="M17 72Q86 66 145 72T283 73T425 72T543 72M48 91Q110 85 177 93M366 93Q431 86 508 91"/>
+    </g>
+    <path d="M280 107Q274 121 271 130C268 150 268 171 257 190Q280 181 303 190C292 171 292 150 289 130Q286 121 280 107Z" fill="url(#cv-new)"/>
+    <g fill="url(#cv-slab)" stroke="#282a33" stroke-width="1.1">
+      <use href="#cv-side"/><use href="#cv-side" transform="translate(560) scale(-1 1)"/>
+    </g>
+    <g fill="#b3935d" stroke="#6b512e">
+      <use href="#cv-rim"/><use href="#cv-rim" transform="translate(560) scale(-1 1)"/>
+    </g>
+    <g fill="url(#cv-grain)">
+      <use href="#cv-side"/><use href="#cv-side" transform="translate(560) scale(-1 1)"/>
+      <use href="#cv-rim"/><use href="#cv-rim" transform="translate(560) scale(-1 1)"/>
+    </g>
+    <g stroke="#fff1ab" stroke-width="1.25" opacity=".47" fill="none">
+      <use href="#cv-cell"/><use href="#cv-cell" transform="translate(560) scale(-1 1)"/>
+    </g>
+    <g stroke="#fff" fill="none" stroke-width="2.8" stroke-linecap="round" marker-end="url(#cv-arrow)">
+      <path d="M229 139L151 145"/><path d="M331 139L409 145"/>
+    </g>
+  `;
+  const cell = svg.querySelector('#cv-cell');
+  const distance = cell.getTotalLength();
+  const particles = [];
+  for (const side of [1, -1]) {
+    for (let i = 0; i < 13; i++) {
+      const dot = S('path', { fill: i % 3 ? '#fff0a8' : '#fff7da',
+        d: 'M-5 -1.4H1V-3L6 0L1 3V1.4H-5Z' });
+      svg.appendChild(dot);
+      particles.push({ side, dot, offset: i / 13 });
+    }
+  }
+  for (const [x, y, text] of [[280, 98, '中洋脊'], [96, 125, '海溝'], [464, 125, '海溝'],
+    [154, 112, '岩石圈'], [280, 222, '熱對流上升'], [68, 265, '熱對流下降'],
+    [492, 265, '熱對流下降'], [280, 321, '軟流圈']]) {
+    const group = S('g', { class: 'anim-lab' });
+    const label = S('text', { x, y, 'text-anchor': 'middle' });
+    label.textContent = text;
+    group.appendChild(label);
+    svg.appendChild(group);
+  }
+  const descriptions = [
+    '① 熱物質在中央上升，推動上方岩石圈向兩側移動',
+    '② 中洋脊的岩漿冷卻，形成新的海洋地殼',
+    '③ 板塊在兩側海溝下沉並回到地函',
+    '④ 軟流圈中的物質向中央回流'
+  ];
+  const caption = controls(ctrl, {
+    toggle: () => drv.toggle(), speed: v => drv.speed(v), reset: () => drv.reset()
+  });
+  cap.textContent = '追蹤粒子方向：由中洋脊下方上升，再沿兩側海溝下降。';
+  const drv = driver(t => {
+    particles.forEach(({ side, dot, offset }) => {
+      const d = ((t / 10 + offset) % 1) * distance;
+      const p = cell.getPointAtLength(d);
+      const q = cell.getPointAtLength((d + 1) % distance);
+      const x = side === 1 ? p.x : 560 - p.x;
+      const angle = Math.atan2(q.y - p.y, side * (q.x - p.x)) * 180 / Math.PI;
+      dot.setAttribute('transform', `translate(${x},${p.y}) rotate(${angle})`);
+    });
+    caption.textContent = descriptions[Math.floor(t % 10 / 2.5)];
+  });
+  wrap._stop = drv.stop;
+  return wrap;
+}
+
+root.ANIM = { ridge, subduction, fault, convection };
 })(window);

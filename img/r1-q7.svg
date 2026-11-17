@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 360" role="img" aria-label="蘋果構造"><title>蘋果構造</title>
+<defs><pattern id="grain" width="24" height="17" patternUnits="userSpaceOnUse"><path d="M2 4h6m4 9h7m-4-9l4 1" stroke="#382e28" opacity=".24"/><circle cx="7" cy="12" r="1" fill="#fff" opacity=".3"/></pattern><linearGradient id="water" x2="0%" y2="100%"><stop stop-color="#8fc6e6"/><stop offset="1" stop-color="#2f6f96"/></linearGradient><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#d4342a"/></marker></defs>
+<style>text{font-family:system-ui,sans-serif;font-weight:800;fill:#1d2730;paint-order:stroke;stroke:white;stroke-width:4px;stroke-linejoin:round}</style>
+
+<defs><radialGradient id="skin"><stop stop-color="#df7e53"/><stop offset="1" stop-color="#aa3940"/></radialGradient><radialGradient id="flesh"><stop stop-color="#fff9df"/><stop offset="1" stop-color="#e5d5ac"/></radialGradient></defs>
+<path d="M168 61C130 42 68 48 46 91C18 147 48 273 109 311C129 321 149 311 175 311C199 311 214 323 240 308C307 268 322 144 290 87C266 48 218 47 168 61Z" fill="url(#skin)" stroke="#544438" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M165 68C129 48 76 61 55 99C28 148 59 260 105 297Q135 325 167 301Q190 317 219 296C268 256 289 146 264 95Q230 41 165 68Z" fill="url(#flesh)" stroke="#544438" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M166 71Q176 53 182 23" fill="none" stroke="#765039" stroke-width="8" stroke-linejoin="round"/><path d="M166 126Q142 138 131 172Q122 197 145 231Q167 245 189 225Q209 196 191 158Z" fill="#d2be85" stroke="#544438" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M157 166Q138 180 148 199Q161 206 163 185Z M177 173Q194 186 183 202Q171 205 170 191Z" fill="#673e2d" stroke="#544438" stroke-width="1.7" stroke-linejoin="round"/>
+<ellipse cx="165" cy="187" rx="52" ry="53" fill="none" stroke="#4c4037" stroke-width="2"/>
+<path d="M281 106H363M217 187H363M214 262H363" fill="none" stroke="#544438" stroke-width="1.7" stroke-linejoin="round"/><text x="401" y="114" text-anchor="middle" font-size="22">果皮</text><text x="401" y="195" text-anchor="middle" font-size="22">果核</text><text x="401" y="270" text-anchor="middle" font-size="22">果肉</text></svg>

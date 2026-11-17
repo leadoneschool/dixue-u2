@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 392" role="img" aria-label="岩層甲、乙、丙、丁與斷層戊">
+<title>岩層甲、乙、丙、丁與斷層戊</title>
+<defs>
+<pattern id="grain" width="21" height="14" patternUnits="userSpaceOnUse">
+<path d="M1 4h5m6 7h7M9 2l3 1m-8 9h3" fill="none" stroke="#31261f" opacity=".22"/>
+<circle cx="17" cy="4" r=".8" fill="#fff" opacity=".42"/>
+</pattern>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto" markerUnits="strokeWidth">
+<path d="M0 0L10 5L0 10Z" fill="#d4342a"/>
+</marker>
+</defs>
+<style>text{font-family:system-ui,sans-serif;font-weight:800;fill:#1d2730;paint-order:stroke;stroke:white;stroke-width:4px;stroke-linejoin:round}</style>
+
+<path d="M38 29H492V360H38Z" fill="#83604b" stroke="#514439" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M38 29H492V264Q423 272 372 292Q300 309 239 302Q170 291 135 293Q83 296 38 312Z" fill="#ac8966" stroke="#514439" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M38 29H492V213Q430 222 377 244Q324 260 257 236Q232 211 207 186Q137 130 38 216Z" fill="#bf9a86" stroke="#514439" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M38 29H492V101Q418 97 357 100Q296 94 246 73Q160 43 38 45Z" fill="#e1ba85" stroke="#514439" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M38 29H492V360H38Z" fill="url(#grain)" stroke="none" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M67 360Q146 272 208 229Q265 176 330 139Q348 117 367 100" fill="none" stroke="#594233" stroke-width="2" stroke-linejoin="round"/>
+<path d="M367 100L372 82M480 69H511M480 143H511M480 241H511M480 332H511" fill="none" stroke="#514439" stroke-width="1.5" stroke-linejoin="round"/>
+<text x="372" y="75" font-size="19" text-anchor="middle">戊</text><text x="535" y="77" font-size="19" text-anchor="middle">甲</text><text x="535" y="150" font-size="19" text-anchor="middle">乙</text><text x="535" y="249" font-size="19" text-anchor="middle">丙</text><text x="535" y="339" font-size="19" text-anchor="middle">丁</text>
+</svg>

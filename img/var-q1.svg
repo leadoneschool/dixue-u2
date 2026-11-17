@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 288" role="img" aria-label="岩層剖面"><title>岩層剖面</title><defs>
+<pattern id="grain" width="15" height="12" patternUnits="userSpaceOnUse"><path d="M2 4h3m4 4h4" stroke="#312c28" opacity=".25"/><circle cx="6" cy="10" r=".7" fill="#fff" opacity=".35"/></pattern>
+<pattern id="pebbles" width="28" height="23" patternUnits="userSpaceOnUse"><path d="M5 12Q1 7 6 5Q12 5 11 10Q9 15 5 12ZM18 20Q14 16 19 14Q24 14 23 19Z" fill="#9e9c92" stroke="#574d43" stroke-width="1"/></pattern>
+<pattern id="hatch" width="11" height="11" patternUnits="userSpaceOnUse"><path d="M-2 2L2 -2M0 11L11 0M9 13L13 9" stroke="#856a50" stroke-width="1.5"/></pattern>
+<pattern id="dots" width="16" height="15" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.5" fill="#473d34"/><circle cx="11" cy="10" r="1" fill="#473d34"/></pattern>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#d4342a"/></marker>
+<marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#3a6896"/></marker>
+</defs><style>text{font-family:system-ui,sans-serif;font-weight:800;fill:#1d2730;paint-order:stroke;stroke:white;stroke-width:3.4px;stroke-linejoin:round}</style>
+<path d="M30 47H335V255H30Z" fill="#fbfaf6" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/><path d="M30 98Q93 97 128 141Q161 182 198 170Q227 163 249 132Q270 103 335 98V142Q284 147 258 177Q227 219 191 222Q154 227 120 189Q86 149 30 141Z" fill="#b09b7e" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M109 47H262Q217 100 187 99Q152 98 109 47Z M30 212Q72 214 107 255H30Z M259 255Q292 217 335 212V255Z" fill="#c5baa7" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M51 47 l-5 -7l7 2l2 -7l4 7l6 -2l-2 7Z" fill="#779b52" stroke="#49623b" stroke-width="1" stroke-linejoin="round"/><path d="M92 47 l-5 -7l7 2l2 -7l4 7l6 -2l-2 7Z" fill="#779b52" stroke="#49623b" stroke-width="1" stroke-linejoin="round"/><path d="M247 47 l-5 -7l7 2l2 -7l4 7l6 -2l-2 7Z" fill="#779b52" stroke="#49623b" stroke-width="1" stroke-linejoin="round"/><text x="299" y="33" text-anchor="middle" font-size="23">地表</text></svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 335" role="img" aria-label="範例二：地表侵蝕、岩脈與斷層">
+<title>範例二：地表侵蝕、岩脈與斷層</title>
+<defs>
+<pattern id="grain" width="21" height="14" patternUnits="userSpaceOnUse">
+<path d="M1 4h5m6 7h7M9 2l3 1m-8 9h3" fill="none" stroke="#31261f" opacity=".22"/>
+<circle cx="17" cy="4" r=".8" fill="#fff" opacity=".42"/>
+</pattern>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto" markerUnits="strokeWidth">
+<path d="M0 0L10 5L0 10Z" fill="#d4342a"/>
+</marker>
+</defs>
+<style>text{font-family:system-ui,sans-serif;font-weight:800;fill:#1d2730;paint-order:stroke;stroke:white;stroke-width:4px;stroke-linejoin:round}</style>
+
+<path d="M44 116Q60 108 76 118T127 116T175 115T223 120Q258 117 291 102Q322 87 348 114Q384 130 446 117V282H44Z" fill="#a47762" stroke="#514439" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M44 116Q60 108 76 118T127 116T175 115T223 120Q258 117 291 102Q322 87 348 114Q384 130 446 117V176H171L146 209H44Z" fill="#8f8c9a" stroke="#514439" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M44 209H146L171 176H446V192H160L139 224H44Z" fill="#dfc49c" stroke="#514439" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M289 102L310 97L370 282H348Z" fill="#bb5043" stroke="#514439" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M215 117L169 179L142 214L118 282" fill="none" stroke="#f2ece2" stroke-width="3" stroke-linejoin="round"/>
+<path d="M44 116Q60 108 76 118T127 116T175 115T223 120Q258 117 291 102Q322 87 348 114Q384 130 446 117V282H44Z" fill="url(#grain)" stroke="none" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M109 61L108 108" fill="none" stroke="#d4342a" stroke-width="4" marker-end="url(#arrow)"/><path d="M300 58L300 96" fill="none" stroke="#d4342a" stroke-width="4" marker-end="url(#arrow)"/><path d="M114 311L119 285" fill="none" stroke="#d4342a" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="110" y="48" font-size="19" text-anchor="middle">地表侵蝕面</text><text x="301" y="46" font-size="19" text-anchor="middle">岩脈</text><text x="110" y="330" font-size="19" text-anchor="middle">斷層</text><text x="484" y="153" font-size="19" text-anchor="middle">礫岩</text><text x="484" y="195" font-size="19" text-anchor="middle">砂岩</text><text x="484" y="247" font-size="19" text-anchor="middle">頁岩</text><text x="554" y="52" font-size="19" text-anchor="middle">1</text><text x="554" y="115" font-size="19" text-anchor="middle">2</text><text x="554" y="285" font-size="19" text-anchor="middle">3</text>
+</svg>

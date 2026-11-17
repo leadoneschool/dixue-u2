@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 444" role="img" aria-label="東非大裂谷的原創景觀示意"><title>東非大裂谷的原創景觀示意</title><defs>
+<pattern id="grain" width="15" height="12" patternUnits="userSpaceOnUse"><path d="M2 4h3m4 4h4" stroke="#312c28" opacity=".25"/><circle cx="6" cy="10" r=".7" fill="#fff" opacity=".35"/></pattern>
+<pattern id="pebbles" width="28" height="23" patternUnits="userSpaceOnUse"><path d="M5 12Q1 7 6 5Q12 5 11 10Q9 15 5 12ZM18 20Q14 16 19 14Q24 14 23 19Z" fill="#9e9c92" stroke="#574d43" stroke-width="1"/></pattern>
+<pattern id="hatch" width="11" height="11" patternUnits="userSpaceOnUse"><path d="M-2 2L2 -2M0 11L11 0M9 13L13 9" stroke="#856a50" stroke-width="1.5"/></pattern>
+<pattern id="dots" width="16" height="15" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.5" fill="#473d34"/><circle cx="11" cy="10" r="1" fill="#473d34"/></pattern>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#d4342a"/></marker>
+<marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#3a6896"/></marker>
+</defs><style>text{font-family:system-ui,sans-serif;font-weight:800;fill:#1d2730;paint-order:stroke;stroke:white;stroke-width:3.4px;stroke-linejoin:round}</style>
+<defs><linearGradient id="sky" x2="0%" y2="100%"><stop stop-color="#86b5cf"/><stop offset="1" stop-color="#e7e8df"/></linearGradient></defs>
+<rect x="0" y="0" width="720" height="444" rx="0" fill="url(#sky)" stroke="none"/>
+<path d="M0 199Q200 191 398 209Q563 218 720 193V444H0Z" fill="#a8a18c" stroke="none" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M0 263Q201 251 396 250Q560 258 720 244V444H0Z" fill="#bca27a" stroke="none" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M0 144L77 175L121 188L179 218L215 263Q239 304 311 340Q385 383 418 404L454 444H0Z" fill="#8e7656" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M0 165L94 196L180 235Q228 313 297 344L412 444H0Z" fill="#b99b70" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M0 203Q117 234 165 272Q203 312 263 348L373 444H0Z" fill="#9e845d" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M0 240Q113 269 156 321Q211 370 297 395L354 444H0Z" fill="#c6a67b" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M720 326Q667 361 616 397L565 444H720Z" fill="#71664e" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M0 184Q135 250 190 337L278 442" fill="none" stroke="#6f5e47" stroke-width="1.6" stroke-linejoin="round"/><path d="M18 205Q148 265 214 349L300 442" fill="none" stroke="#6f5e47" stroke-width="1.6" stroke-linejoin="round"/><path d="M36 226Q161 280 238 361L322 442" fill="none" stroke="#6f5e47" stroke-width="1.6" stroke-linejoin="round"/><path d="M54 247Q174 295 262 373L344 442" fill="none" stroke="#6f5e47" stroke-width="1.6" stroke-linejoin="round"/><path d="M72 268Q187 310 286 385L366 442" fill="none" stroke="#6f5e47" stroke-width="1.6" stroke-linejoin="round"/><path d="M90 289Q200 325 310 397L388 442" fill="none" stroke="#6f5e47" stroke-width="1.6" stroke-linejoin="round"/><path d="M108 310Q213 340 334 409L410 442" fill="none" stroke="#6f5e47" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M634 260Q566 288 560 314Q556 327 519 340T489 382Q475 399 485 414" fill="none" stroke="#6b6b55" stroke-width="3" stroke-linejoin="round"/>
+<path d="M32 110Q240 92 324 115T675 122 M359 150Q458 128 528 150T700 150" fill="none" stroke="#fff" stroke-width="9" stroke-linejoin="round"/>
+<path d="M0 144L77 175L121 188L179 218L215 263Q239 304 311 340Q385 383 418 404L454 444H0Z" fill="url(#grain)" stroke="none" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="119" y="58" text-anchor="middle" font-size="29">東非大裂谷</text></svg>

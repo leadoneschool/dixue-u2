@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 548" role="img" aria-label="前震、主震、餘震">
+<title>前震、主震、餘震</title>
+<defs>
+<pattern id="grain" width="21" height="14" patternUnits="userSpaceOnUse">
+<path d="M1 4h5m6 7h7M9 2l3 1m-8 9h3" fill="none" stroke="#31261f" opacity=".22"/>
+<circle cx="17" cy="4" r=".8" fill="#fff" opacity=".42"/>
+</pattern>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto" markerUnits="strokeWidth">
+<path d="M0 0L10 5L0 10Z" fill="#d4342a"/>
+</marker>
+</defs>
+<style>text{font-family:system-ui,sans-serif;font-weight:800;fill:#1d2730;paint-order:stroke;stroke:white;stroke-width:4px;stroke-linejoin:round}</style>
+<rect x="13" y="8" width="374" height="141" rx="10" fill="#faf8f4" stroke="#8c877b"/><path d="M23 8H377Q387 8 387 18V48H13V18Q13 8 23 8Z" fill="#b5d9e7"/><text x="200" y="36" font-size="22" text-anchor="middle">前震</text><text x="200" y="77" font-size="16" text-anchor="middle">在主震之前發生。</text><text x="200" y="103" font-size="16" text-anchor="middle">規模較主震小。</text><path d="M200 158L200 178" fill="none" stroke="#d4342a" stroke-width="4" marker-end="url(#arrow)"/><rect x="13" y="187" width="374" height="141" rx="10" fill="#faf8f4" stroke="#8c877b"/><path d="M23 187H377Q387 187 387 197V227H13V197Q13 187 23 187Z" fill="#e6b0a4"/><text x="200" y="215" font-size="22" text-anchor="middle">主震</text><text x="200" y="256" font-size="16" text-anchor="middle">序列中規模最大的地震。</text><text x="200" y="282" font-size="16" text-anchor="middle">若最大規模有兩個，</text><text x="200" y="308" font-size="16" text-anchor="middle">先發生者為主震。</text><path d="M200 337L200 357" fill="none" stroke="#d4342a" stroke-width="4" marker-end="url(#arrow)"/><rect x="13" y="366" width="374" height="141" rx="10" fill="#faf8f4" stroke="#8c877b"/><path d="M23 366H377Q387 366 387 376V406H13V376Q13 366 23 366Z" fill="#e9d79d"/><text x="200" y="394" font-size="22" text-anchor="middle">餘震</text><text x="200" y="435" font-size="16" text-anchor="middle">在主震之後發生。</text><text x="200" y="461" font-size="16" text-anchor="middle">規模較主震小。</text><text x="200" y="487" font-size="16" text-anchor="middle">餘震分布可推測主震的破裂帶。</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 295" role="img" aria-label="中洋脊附近的 X、Y、Z 三處"><title>中洋脊附近的 X、Y、Z 三處</title>
+<defs><pattern id="grain" width="24" height="17" patternUnits="userSpaceOnUse"><path d="M2 4h6m4 9h7m-4-9l4 1" stroke="#382e28" opacity=".24"/><circle cx="7" cy="12" r="1" fill="#fff" opacity=".3"/></pattern><linearGradient id="water" x2="0%" y2="100%"><stop stop-color="#8fc6e6"/><stop offset="1" stop-color="#2f6f96"/></linearGradient><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#d4342a"/></marker></defs>
+<style>text{font-family:system-ui,sans-serif;font-weight:800;fill:#1d2730;paint-order:stroke;stroke:white;stroke-width:4px;stroke-linejoin:round}</style>
+
+<path d="M38 123L107 70H214Q247 49 268 55Q303 70 365 70H601L531 123Z" fill="#d9eaf1" stroke="#544438" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M38 123H155Q221 123 248 90Q261 105 282 113Q303 123 362 123H531V250H38Z" fill="#b55846" stroke="#544438" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M38 123H155Q221 123 248 90Q261 105 282 113Q303 123 362 123H531V155H360Q291 155 253 107Q232 146 171 155H38Z" fill="url(#water)" stroke="#544438" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M531 123L601 70V194L531 250Z" fill="#864a48" stroke="#544438" stroke-width="1.7" stroke-linejoin="round"/><path d="M531 123L601 70V102L531 155Z" fill="#6296b0" stroke="#544438" stroke-width="1.7" stroke-linejoin="round"/>
+<path d="M38 155H531V250H38Z" fill="url(#grain)" stroke="none" stroke-width="1.7" stroke-linejoin="round"/><path d="M167 153Q221 143 248 90L256 70L269 55L281 58Q268 78 257 100Q236 148 207 155Z" fill="#a4483f" stroke="#544438" stroke-width="1.7" stroke-linejoin="round"/>
+<text x="270" y="35" text-anchor="middle" font-size="22">中洋脊</text><text x="157" y="218" text-anchor="middle" font-size="22">軟流圈</text>
+<circle cx="296" cy="107" r="4.2" fill="#1d2730"/><text x="296" y="94" text-anchor="middle" font-size="20">X</text><circle cx="405" cy="107" r="4.2" fill="#1d2730"/><text x="405" y="94" text-anchor="middle" font-size="20">Y</text><circle cx="514" cy="107" r="4.2" fill="#1d2730"/><text x="514" y="94" text-anchor="middle" font-size="20">Z</text></svg>

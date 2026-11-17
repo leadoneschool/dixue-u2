@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 565 330" role="img" aria-label="沉積、侵蝕、岩脈及斷層"><title>沉積、侵蝕、岩脈及斷層</title><defs>
+<pattern id="grain" width="15" height="12" patternUnits="userSpaceOnUse"><path d="M2 4h3m4 4h4" stroke="#312c28" opacity=".25"/><circle cx="6" cy="10" r=".7" fill="#fff" opacity=".35"/></pattern>
+<pattern id="pebbles" width="28" height="23" patternUnits="userSpaceOnUse"><path d="M5 12Q1 7 6 5Q12 5 11 10Q9 15 5 12ZM18 20Q14 16 19 14Q24 14 23 19Z" fill="#9e9c92" stroke="#574d43" stroke-width="1"/></pattern>
+<pattern id="hatch" width="11" height="11" patternUnits="userSpaceOnUse"><path d="M-2 2L2 -2M0 11L11 0M9 13L13 9" stroke="#856a50" stroke-width="1.5"/></pattern>
+<pattern id="dots" width="16" height="15" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.5" fill="#473d34"/><circle cx="11" cy="10" r="1" fill="#473d34"/></pattern>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#d4342a"/></marker>
+<marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#3a6896"/></marker>
+</defs><style>text{font-family:system-ui,sans-serif;font-weight:800;fill:#1d2730;paint-order:stroke;stroke:white;stroke-width:3.4px;stroke-linejoin:round}</style>
+<path d="M169 74Q237 74 286 58Q322 46 445 48V282H169Z" fill="#e3c9aa" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M169 74Q237 74 286 58Q322 46 445 48V282H169Z" fill="url(#hatch)" stroke="none" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M169 156Q225 165 276 158Q323 160 349 153V111Q393 128 445 116V282H169Z" fill="#e4d7c1" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M169 156Q225 165 276 158Q323 160 349 153V111Q393 128 445 116V282H169Z" fill="url(#pebbles)" stroke="none" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M311 53L349 49V151L311 114Z M350 153L385 188V282H350Z" fill="#747a6f" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<path d="M277 62L445 282" fill="none" stroke="#56453b" stroke-width="2.6" stroke-linejoin="round"/>
+<text x="331" y="31" text-anchor="middle" font-size="23">岩脈</text><text x="87" y="81" text-anchor="middle" font-size="23">頁岩侵蝕面</text><text x="85" y="124" text-anchor="middle" font-size="23">頁岩沉積</text><text x="87" y="166" text-anchor="middle" font-size="23">礫岩侵蝕面</text><text x="85" y="235" text-anchor="middle" font-size="23">礫岩沉積</text><text x="475" y="280" text-anchor="middle" font-size="23">斷層</text></svg>

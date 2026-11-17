@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 535 480" role="img" aria-label="高雄美濃地震的預警流程與盲區"><title>高雄美濃地震的預警流程與盲區</title><defs>
+<pattern id="grain" width="15" height="12" patternUnits="userSpaceOnUse"><path d="M2 4h3m4 4h4" stroke="#312c28" opacity=".25"/><circle cx="6" cy="10" r=".7" fill="#fff" opacity=".35"/></pattern>
+<pattern id="pebbles" width="28" height="23" patternUnits="userSpaceOnUse"><path d="M5 12Q1 7 6 5Q12 5 11 10Q9 15 5 12ZM18 20Q14 16 19 14Q24 14 23 19Z" fill="#9e9c92" stroke="#574d43" stroke-width="1"/></pattern>
+<pattern id="hatch" width="11" height="11" patternUnits="userSpaceOnUse"><path d="M-2 2L2 -2M0 11L11 0M9 13L13 9" stroke="#856a50" stroke-width="1.5"/></pattern>
+<pattern id="dots" width="16" height="15" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.5" fill="#473d34"/><circle cx="11" cy="10" r="1" fill="#473d34"/></pattern>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#d4342a"/></marker>
+<marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#3a6896"/></marker>
+</defs><style>text{font-family:system-ui,sans-serif;font-weight:800;fill:#1d2730;paint-order:stroke;stroke:white;stroke-width:3.4px;stroke-linejoin:round}</style>
+<circle cx="183" cy="248" r="179" fill="none" stroke="#ab796e" stroke-dasharray="6 6"/>
+<path d="M229 50Q236 39 253 58L271 63L274 83L284 93L275 117L268 142L258 167L250 192L245 219L228 249L218 277L215 306L207 330L195 322L185 305L170 296L160 277L150 257L140 248L130 225L132 205L142 178L154 159L164 135L179 114L191 91L207 68Z" fill="#8bb8cc" stroke="#667d84" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M177 108Q214 120 268 113M153 155Q192 161 257 165M141 191Q188 201 246 202M132 226Q172 222 232 232M149 257Q179 255 220 266M168 288L218 288" fill="none" stroke="#dae6e7" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="176" cy="248" r="43" fill="#b192b9" fill-opacity=".6" stroke="#886a96"/>
+<path d="M179 246L239 82" fill="none" stroke="#6e6089" stroke-width="3" stroke-linejoin="round"/><path d="M239 82l-9 13h12Z" fill="#6e6089" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/>
+<circle cx="248" cy="59" r="3.3" fill="#273c3d"/><circle cx="239" cy="82" r="3.3" fill="#273c3d"/><circle cx="192" cy="153" r="3.3" fill="#273c3d"/><circle cx="237" cy="185" r="3.3" fill="#273c3d"/><circle cx="164" cy="230" r="3.3" fill="#273c3d"/>
+<path d="M179 240l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6Z" fill="#d4342a" stroke="none" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="282" y="59" text-anchor="middle" font-size="15">基隆</text><text x="217" y="75" text-anchor="middle" font-size="15">臺北</text><text x="173" y="147" text-anchor="middle" font-size="15">臺中</text><text x="270" y="191" text-anchor="middle" font-size="15">花蓮</text><text x="153" y="228" text-anchor="middle" font-size="15">臺南</text>
+<text x="258" y="252" text-anchor="middle" font-size="15">105年2月6日</text><text x="281" y="274" text-anchor="middle" font-size="15">高雄美濃大地震</text>
+<text x="107" y="33" text-anchor="middle" font-size="15">地震發生後61秒</text><text x="105" y="55" text-anchor="middle" font-size="15">地震抵達臺北</text><path d="M173 48L238 66" fill="none" stroke="#557c68" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="92" y="198" text-anchor="middle" font-size="15">地震發生後12秒</text><text x="95" y="218" text-anchor="middle" font-size="15">發出警報</text><path d="M122 221L150 232" fill="none" stroke="#557c68" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="384" y="163" text-anchor="middle" font-size="15">臺北接收警報後</text><text x="393" y="184" text-anchor="middle" font-size="15">有49秒應變時間</text><path d="M296 175L247 149" fill="none" stroke="#557c68" stroke-width="1.6" stroke-linejoin="round"/>
+<text x="208" y="190" text-anchor="middle" font-size="13">49秒</text><text x="192" y="230" text-anchor="middle" font-size="13">12秒</text><text x="219" y="62" text-anchor="middle" font-size="13">61秒</text>
+<circle cx="97" cy="384" r="10" fill="#bfa5c4"/><text x="185" y="390" text-anchor="middle" font-size="15">預警盲區</text><path d="M84 411H108" fill="none" stroke="#6e6089" stroke-width="3" stroke-linejoin="round"/><text x="185" y="417" text-anchor="middle" font-size="15">地震資訊處理時間</text>
+<path d="M85 436H109" stroke="#a97766" stroke-width="1.6" stroke-dasharray="4 4"/><text x="185" y="442" text-anchor="middle" font-size="15">地震抵達臺北時間</text>
+<path d="M84 459H108" fill="none" stroke="#6e6089" stroke-width="2" stroke-linejoin="round"/><path d="M108 459l-7-4v8Z" fill="#6e6089" stroke="#544438" stroke-width="1.6" stroke-linejoin="round"/><text x="185" y="465" text-anchor="middle" font-size="15">地震可預警區域</text></svg>
